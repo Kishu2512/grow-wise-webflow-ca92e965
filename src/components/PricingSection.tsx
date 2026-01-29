@@ -47,8 +47,11 @@ const PricingSection = () => {
   ];
 
   return (
-    <section id="pricing" className="py-20 md:py-28 bg-secondary">
-      <div className="section-container">
+    <section id="pricing" className="py-20 md:py-28 bg-background relative overflow-hidden">
+      {/* Subtle Background */}
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+
+      <div className="section-container relative z-10">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-4">

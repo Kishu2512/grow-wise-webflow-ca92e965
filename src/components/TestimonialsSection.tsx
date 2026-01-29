@@ -25,14 +25,18 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-background">
-      <div className="section-container">
+    <section className="py-20 md:py-28 section-navy relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 pattern-grid opacity-10" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-3xl" />
+
+      <div className="section-container relative z-10">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-4">
             Testimonials
           </p>
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
             What our clients say
           </h2>
         </div>
@@ -42,7 +46,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="relative p-8 bg-card rounded-2xl border border-border card-hover"
+              className="relative p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-accent/30 transition-all card-hover"
             >
               {/* Quote Icon */}
               <div className="absolute top-6 right-6">
@@ -60,7 +64,7 @@ const TestimonialsSection = () => {
               </div>
 
               {/* Quote */}
-              <p className="text-foreground text-lg mb-6 leading-relaxed">
+              <p className="text-white/80 text-lg mb-6 leading-relaxed">
                 "{testimonial.quote}"
               </p>
 
@@ -72,10 +76,10 @@ const TestimonialsSection = () => {
                   </span>
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">
+                  <p className="font-semibold text-white">
                     {testimonial.author}
                   </p>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-white/60 text-sm">
                     {testimonial.role}
                   </p>
                 </div>
