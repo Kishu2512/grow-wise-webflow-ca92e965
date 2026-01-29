@@ -25,8 +25,11 @@ const PortfolioSection = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-20 md:py-28 bg-secondary">
-      <div className="section-container">
+    <section id="portfolio" className="py-20 md:py-28 bg-background relative overflow-hidden">
+      {/* Subtle Background */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+
+      <div className="section-container relative z-10">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-4">
@@ -42,11 +45,11 @@ const PortfolioSection = () => {
           {caseStudies.map((study, index) => (
             <div
               key={index}
-              className="group relative bg-card rounded-2xl border border-border overflow-hidden card-hover"
+              className="group relative bg-card rounded-2xl border border-border overflow-hidden card-hover hover:border-accent/30"
             >
               {/* Gradient Background */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${study.color} opacity-50`}
+                className={`absolute inset-0 bg-gradient-to-br ${study.color} opacity-30`}
               />
 
               <div className="relative p-8">
@@ -60,7 +63,7 @@ const PortfolioSection = () => {
                       {study.title}
                     </h3>
                   </div>
-                  <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-colors">
                     <ArrowUpRight
                       size={20}
                       className="text-accent group-hover:text-primary"
@@ -72,7 +75,7 @@ const PortfolioSection = () => {
                 <div className="space-y-4">
                   {study.results.map((result, i) => (
                     <div key={i} className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
                         <result.icon className="w-5 h-5 text-accent" />
                       </div>
                       <p className="text-foreground font-medium">{result.text}</p>
