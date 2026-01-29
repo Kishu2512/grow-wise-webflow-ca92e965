@@ -1,4 +1,4 @@
-import { XCircle } from "lucide-react";
+import { XCircle, AlertTriangle } from "lucide-react";
 
 const ProblemSection = () => {
   const problems = [
@@ -10,10 +10,19 @@ const ProblemSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-background">
-      <div className="section-container">
+    <section className="py-20 md:py-28 section-navy relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 pattern-grid opacity-10" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-destructive/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
+
+      <div className="section-container relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-destructive/20 border border-destructive/30 rounded-full mb-6">
+            <AlertTriangle className="w-4 h-4 text-destructive" />
+            <span className="text-destructive text-sm font-medium">Common Challenges</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
             Is your business stuck because…
           </h2>
         </div>
@@ -22,10 +31,12 @@ const ProblemSection = () => {
           {problems.map((problem, index) => (
             <div
               key={index}
-              className="flex items-start gap-4 p-5 bg-destructive/5 border border-destructive/20 rounded-xl group hover:bg-destructive/10 transition-colors"
+              className="flex items-start gap-4 p-5 bg-white/5 backdrop-blur-sm border border-destructive/30 rounded-xl group hover:bg-destructive/10 hover:border-destructive/50 transition-all"
             >
-              <XCircle className="w-6 h-6 text-destructive flex-shrink-0 mt-0.5" />
-              <p className="text-foreground/80 text-lg">{problem}</p>
+              <div className="w-8 h-8 rounded-lg bg-destructive/20 flex items-center justify-center flex-shrink-0">
+                <XCircle className="w-5 h-5 text-destructive" />
+              </div>
+              <p className="text-white/80 text-lg leading-relaxed">{problem}</p>
             </div>
           ))}
         </div>

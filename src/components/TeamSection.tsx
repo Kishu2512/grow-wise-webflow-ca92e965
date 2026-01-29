@@ -1,6 +1,8 @@
 import { Linkedin, Award } from "lucide-react";
 import kishorImage from "@/assets/kishor-headshot.jpg";
 import nishchithaImage from "@/assets/nishchitha-headshot.jpg";
+import veenaImage from "@/assets/veena-headshot.jpg";
+import abidImage from "@/assets/abid-headshot.jpg";
 
 const TeamSection = () => {
   const team = [
@@ -21,6 +23,24 @@ const TeamSection = () => {
         "Skilled developer specializing in building high-performance, conversion-focused websites and web applications.",
       image: nishchithaImage,
       specialties: ["Web Development", "UI/UX", "Performance"],
+    },
+    {
+      name: "Veena AM",
+      role: "Quality Analyst",
+      experience: "3+ years of experience",
+      description:
+        "Dedicated to ensuring flawless user experiences through rigorous testing and quality assurance processes.",
+      image: veenaImage,
+      specialties: ["Quality Assurance", "Testing", "User Experience"],
+    },
+    {
+      name: "Abid",
+      role: "Sales Manager",
+      experience: "5+ years of experience",
+      description:
+        "Passionate about understanding client needs and delivering tailored solutions that drive business growth.",
+      image: abidImage,
+      specialties: ["Sales Strategy", "Client Relations", "Business Growth"],
     },
   ];
 
@@ -45,14 +65,14 @@ const TeamSection = () => {
         </div>
 
         {/* Team Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {team.map((member, index) => (
             <div
               key={index}
               className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-accent/30 transition-all"
             >
               {/* Image */}
-              <div className="relative h-80 overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -61,39 +81,39 @@ const TeamSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent" />
                 
                 {/* Experience Badge */}
-                <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 bg-accent/90 rounded-full">
-                  <Award size={14} className="text-primary" />
-                  <span className="text-primary text-xs font-semibold">
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-1 bg-accent/90 rounded-full">
+                  <Award size={12} className="text-primary" />
+                  <span className="text-primary text-[10px] font-semibold">
                     {member.experience}
                   </span>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
+              <div className="p-5">
+                <div className="flex items-start justify-between mb-2">
                   <div>
-                    <h3 className="text-2xl font-display font-bold text-white">
+                    <h3 className="text-lg font-display font-bold text-white">
                       {member.name}
                     </h3>
-                    <p className="text-accent font-medium">{member.role}</p>
+                    <p className="text-accent text-sm font-medium">{member.role}</p>
                   </div>
                   <a
                     href="#"
-                    className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
+                    className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
                   >
-                    <Linkedin size={18} className="text-white" />
+                    <Linkedin size={14} className="text-white" />
                   </a>
                 </div>
 
-                <p className="text-white/60 mb-4">{member.description}</p>
+                <p className="text-white/60 text-sm mb-3 line-clamp-2">{member.description}</p>
 
                 {/* Specialties */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {member.specialties.map((specialty, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 bg-white/10 text-white/80 text-xs rounded-full"
+                      className="px-2 py-0.5 bg-white/10 text-white/80 text-[10px] rounded-full"
                     >
                       {specialty}
                     </span>
