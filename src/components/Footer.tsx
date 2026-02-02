@@ -34,9 +34,9 @@ const Footer = () => {
               <img
                 src={webflowraLogo}
                 alt="Webflowra"
-                className="h-14 w-auto"
+                className="h-20 w-auto"
               />
-              <p className="text-accent text-xs font-medium mt-1">
+              <p className="text-cyan-light text-xs font-medium mt-1 italic">
                 Where Web, Workflow & Growth Flow Together.
               </p>
             </div>
