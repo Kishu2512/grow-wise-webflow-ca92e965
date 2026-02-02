@@ -1,6 +1,9 @@
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const FinalCTASection = () => {
+  const whatsappNumber = "917204931995";
+  const whatsappMessage = encodeURIComponent("Hi! I'd like to book a free strategy call.");
+
   return (
     <section
       id="contact"
@@ -24,30 +27,19 @@ const FinalCTASection = () => {
             business growth.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="https://calendly.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary flex items-center gap-2 group"
-            >
-              Book Free Call
-              <ArrowRight
-                size={20}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </a>
-            <a
-              href="https://wa.me/91XXXXXXXXXX"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary flex items-center gap-2"
-            >
-              <MessageCircle size={18} />
-              WhatsApp Us
-            </a>
-          </div>
+          {/* CTA Button - Only Book Free Call */}
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary flex items-center gap-2 group inline-flex"
+          >
+            Book Free Call
+            <ArrowRight
+              size={20}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+          </a>
 
           {/* Trust Elements */}
           <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-white/50 text-sm">

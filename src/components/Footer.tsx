@@ -4,15 +4,16 @@ import {
   MapPin,
   Instagram,
   Linkedin,
-  Twitter,
+  Facebook,
 } from "lucide-react";
+import webflowraLogo from "@/assets/webflowra-logo.png";
 
 const Footer = () => {
   const quickLinks = [
     { href: "#services", label: "Services" },
     { href: "#how-it-works", label: "How It Works" },
     { href: "#portfolio", label: "Portfolio" },
-    { href: "#pricing", label: "Pricing" },
+    { href: "#team", label: "Our Team" },
   ];
 
   const services = [
@@ -29,16 +30,18 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
-                <span className="text-primary font-bold text-xl">W</span>
-              </div>
-              <span className="text-xl font-display font-bold text-white">
-                Webflowra
-              </span>
+            <div className="flex items-center gap-3 mb-2">
+              <img
+                src={webflowraLogo}
+                alt="Webflowra"
+                className="h-10 w-auto"
+              />
             </div>
+            <p className="text-white/40 text-xs mb-4 italic">
+              Where Web, Workflow & Growth Flow Together.
+            </p>
             <p className="text-white/60 mb-6">
-              Where Web Meets Workflow. Building growth systems for businesses
+              Building growth systems for businesses
               across India.
             </p>
             <div className="flex gap-3">
@@ -64,7 +67,7 @@ const Footer = () => {
                 href="#"
                 className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-accent transition-colors group"
               >
-                <Twitter
+                <Facebook
                   size={18}
                   className="text-white group-hover:text-primary"
                 />
@@ -113,24 +116,24 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-accent" />
                 <a
-                  href="mailto:hello@webflowra.com"
+                  href="mailto:contact@webflowra.com"
                   className="text-white/60 hover:text-accent transition-colors"
                 >
-                  hello@webflowra.com
+                  contact@webflowra.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-accent" />
                 <a
-                  href="tel:+91XXXXXXXXXX"
+                  href="tel:+917204931995"
                   className="text-white/60 hover:text-accent transition-colors"
                 >
-                  +91-XXXXXXXXXX
+                  +91-7204931995
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-accent flex-shrink-0 mt-1" />
-                <span className="text-white/60">India</span>
+                <span className="text-white/60">Bangalore, Karnataka</span>
               </li>
             </ul>
           </div>
