@@ -1,29 +1,36 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import webflowraLogo from "@/assets/webflowra-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  
+  const whatsappNumber = "917204931995";
+  const whatsappMessage = encodeURIComponent("Hi! I'd like to get a free strategy call.");
 
   const navLinks = [
     { href: "#services", label: "Services" },
     { href: "#how-it-works", label: "How It Works" },
     { href: "#team", label: "Our Team" },
     { href: "#portfolio", label: "Portfolio" },
-    { href: "#pricing", label: "Pricing" },
   ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-lg border-b border-white/10">
       <div className="section-container">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
-              <span className="text-primary font-bold text-xl">W</span>
+          {/* Logo with tagline */}
+          <a href="#" className="flex items-center gap-3">
+            <img
+              src={webflowraLogo}
+              alt="Webflowra"
+              className="h-10 md:h-12 w-auto"
+            />
+            <div className="hidden sm:block">
+              <span className="text-white/50 text-[10px] leading-tight block">
+                Where Web, Workflow & Growth Flow Together.
+              </span>
             </div>
-            <span className="text-xl font-display font-bold text-white">
-              Webflowra
-            </span>
           </a>
 
           {/* Desktop Navigation */}
@@ -42,7 +49,9 @@ const Navbar = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <a
-              href="#contact"
+              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary text-sm py-3 px-6 rounded-lg inline-block"
             >
               Get Free Strategy Call
@@ -73,7 +82,9 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="#contact"
+                href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary text-sm py-3 px-6 rounded-lg inline-block text-center mt-2"
                 onClick={() => setIsOpen(false)}
               >

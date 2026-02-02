@@ -2,6 +2,9 @@ import { ArrowRight, Play } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
+  const whatsappNumber = "917204931995";
+  const whatsappMessage = encodeURIComponent("Hi! I'd like to get a free strategy call.");
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary pt-20">
       {/* Background Image */}
@@ -49,7 +52,9 @@ const HeroSection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 animate-fade-in-up delay-300">
             <a
-              href="#contact"
+              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary flex items-center gap-2 group"
             >
               Get a Free Strategy Call

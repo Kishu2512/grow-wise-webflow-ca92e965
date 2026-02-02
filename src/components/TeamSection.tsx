@@ -1,7 +1,5 @@
 import { Linkedin, Award } from "lucide-react";
 import kishorImage from "@/assets/kishor-headshot.jpg";
-import nishchithaImage from "@/assets/nishchitha-headshot.jpg";
-import veenaImage from "@/assets/veena-headshot.jpg";
 import abidImage from "@/assets/abid-headshot.jpg";
 
 const TeamSection = () => {
@@ -14,24 +12,6 @@ const TeamSection = () => {
         "Expert in digital marketing strategies, lead generation, and building automation systems that scale businesses.",
       image: kishorImage,
       specialties: ["Digital Marketing", "Automation", "Growth Strategy"],
-    },
-    {
-      name: "Nishchitha",
-      role: "Development Lead",
-      experience: "4+ years of experience",
-      description:
-        "Skilled developer specializing in building high-performance, conversion-focused websites and web applications.",
-      image: nishchithaImage,
-      specialties: ["Web Development", "UI/UX", "Performance"],
-    },
-    {
-      name: "Veena AM",
-      role: "Quality Analyst",
-      experience: "3+ years of experience",
-      description:
-        "Dedicated to ensuring flawless user experiences through rigorous testing and quality assurance processes.",
-      image: veenaImage,
-      specialties: ["Quality Assurance", "Testing", "User Experience"],
     },
     {
       name: "Abid",
@@ -64,15 +44,15 @@ const TeamSection = () => {
           </p>
         </div>
 
-        {/* Team Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        {/* Team Grid - 2 members centered */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {team.map((member, index) => (
             <div
               key={index}
               className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-accent/30 transition-all"
             >
               {/* Image */}
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -90,30 +70,30 @@ const TeamSection = () => {
               </div>
 
               {/* Content */}
-              <div className="p-5">
-                <div className="flex items-start justify-between mb-2">
+              <div className="p-6">
+                <div className="flex items-start justify-between mb-3">
                   <div>
-                    <h3 className="text-lg font-display font-bold text-white">
+                    <h3 className="text-xl font-display font-bold text-white">
                       {member.name}
                     </h3>
                     <p className="text-accent text-sm font-medium">{member.role}</p>
                   </div>
                   <a
                     href="#"
-                    className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
+                    className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
                   >
-                    <Linkedin size={14} className="text-white" />
+                    <Linkedin size={16} className="text-white" />
                   </a>
                 </div>
 
-                <p className="text-white/60 text-sm mb-3 line-clamp-2">{member.description}</p>
+                <p className="text-white/60 text-sm mb-4">{member.description}</p>
 
                 {/* Specialties */}
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {member.specialties.map((specialty, i) => (
                     <span
                       key={i}
-                      className="px-2 py-0.5 bg-white/10 text-white/80 text-[10px] rounded-full"
+                      className="px-3 py-1 bg-white/10 text-white/80 text-xs rounded-full"
                     >
                       {specialty}
                     </span>
