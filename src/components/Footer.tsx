@@ -30,16 +30,16 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-2">
+            <div className="flex flex-col items-start mb-4">
               <img
                 src={webflowraLogo}
                 alt="Webflowra"
-                className="h-10 w-auto"
+                className="h-14 w-auto"
               />
+              <p className="text-accent text-xs font-medium mt-1">
+                Where Web, Workflow & Growth Flow Together.
+              </p>
             </div>
-            <p className="text-white/40 text-xs mb-4 italic">
-              Where Web, Workflow & Growth Flow Together.
-            </p>
             <p className="text-white/60 mb-6">
               Building growth systems for businesses
               across India.
