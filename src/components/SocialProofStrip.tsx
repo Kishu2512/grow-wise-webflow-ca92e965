@@ -14,23 +14,23 @@ const SocialProofStrip = () => {
   ];
 
   return (
-    <section className="py-12 bg-secondary border-y border-border overflow-hidden">
-      <div className="section-container">
-        <p className="text-center text-muted-foreground text-sm font-medium mb-8 uppercase tracking-wider">
+    <section className="py-16 bg-secondary border-y border-border overflow-hidden">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
+        <p className="text-center text-foreground text-base font-semibold mb-10 uppercase tracking-wider">
           Trusted by forward-thinking brands
         </p>
         
-        {/* Horizontal scrolling logos */}
-        <div className="flex items-center justify-center gap-8 md:gap-12 overflow-x-auto pb-2 scrollbar-hide">
+        {/* Horizontal logos - full width */}
+        <div className="flex items-center justify-between gap-4 md:gap-6 overflow-x-auto pb-2 scrollbar-hide">
           {clients.map((client, index) => (
             <div
               key={index}
-              className="flex-shrink-0 h-16 md:h-20 px-4 flex items-center justify-center bg-white rounded-xl border border-border hover:shadow-lg transition-all"
+              className="flex-1 min-w-[160px] h-24 md:h-28 px-6 flex items-center justify-center bg-white rounded-xl border border-border hover:shadow-lg transition-all"
             >
               <img
                 src={client.logo}
                 alt={client.name}
-                className="h-10 md:h-14 w-auto max-w-[140px] md:max-w-[180px] object-contain"
+                className="h-16 md:h-20 w-auto max-w-[200px] object-contain"
               />
             </div>
           ))}

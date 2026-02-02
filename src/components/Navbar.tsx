@@ -18,15 +18,15 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-lg border-b border-white/10">
       <div className="section-container">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-24 md:h-28">
           {/* Logo with tagline below */}
           <a href="#" className="flex flex-col items-start">
             <img
               src={webflowraLogo}
               alt="Webflowra"
-              className="h-12 md:h-14 w-auto"
+              className="h-16 md:h-20 w-auto"
             />
-            <span className="text-accent text-[10px] md:text-xs font-medium mt-0.5">
+            <span className="text-cyan-light text-[10px] md:text-xs font-medium mt-1 italic">
               Where Web, Workflow & Growth Flow Together.
             </span>
           </a>
