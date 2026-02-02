@@ -4,7 +4,7 @@ import webflowraLogo from "@/assets/webflowra-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const whatsappNumber = "917204931995";
   const whatsappMessage = encodeURIComponent("Hi! I'd like to get a free strategy call.");
 
@@ -21,11 +21,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-24 md:h-28">
           {/* Logo with tagline below */}
           <a href="#" className="flex flex-col items-start">
-            <img
-              src={webflowraLogo}
-              alt="Webflowra"
-              className="h-16 md:h-20 w-auto"
-            />
+            <img src={webflowraLogo} alt="Webflowra" className="w-40 md:w-48 h-auto" />
+
             <span className="text-cyan-light text-[10px] md:text-xs font-medium mt-1 italic">
               Where Web, Workflow & Growth Flow Together.
             </span>
@@ -57,10 +54,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white p-2"
-          >
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white p-2">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
