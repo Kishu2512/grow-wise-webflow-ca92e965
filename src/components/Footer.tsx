@@ -3,7 +3,6 @@ import {
   Phone,
   MapPin,
   Instagram,
-  Linkedin,
   Facebook,
 } from "lucide-react";
 import webflowraLogo from "@/assets/webflowra-logo.png";
@@ -46,7 +45,9 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               <a
-                href="#"
+                href="https://www.instagram.com/webflowra/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-accent transition-colors group"
               >
                 <Instagram
@@ -55,16 +56,9 @@ const Footer = () => {
                 />
               </a>
               <a
-                href="#"
-                className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-accent transition-colors group"
-              >
-                <Linkedin
-                  size={18}
-                  className="text-white group-hover:text-primary"
-                />
-              </a>
-              <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61587529013992"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-accent transition-colors group"
               >
                 <Facebook
