@@ -101,7 +101,7 @@
   .as-label {
     font-family: 'Space Mono', monospace;
     @apply text-[10px] uppercase tracking-[0.5em];
-    color: hsl(0 0% 93% / 0.2);
+    color: hsl(200 100% 55% / 0.25);
   }
 
   /* === ANTI-SCROLL BUTTONS === */
