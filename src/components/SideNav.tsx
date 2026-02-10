@@ -26,7 +26,7 @@ const SideNav = ({ sections, activeIndex, onNavigate }: SideNavProps) => {
           {/* Dot */}
           <span className={`block transition-all duration-500 ${
             i === activeIndex
-              ? 'w-3 h-3 bg-as-accent shadow-[0_0_12px_hsl(45_100%_55%/0.5)]'
+              ? 'w-3 h-3 bg-as-accent shadow-[0_0_12px_hsl(200_100%_55%/0.5)]'
               : 'w-1.5 h-1.5 bg-white/15 hover:bg-white/30'
           }`} />
         </button>
