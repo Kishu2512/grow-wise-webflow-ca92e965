@@ -24,43 +24,41 @@ const PortfolioSection = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-24 md:py-32 section-navy relative overflow-hidden scanlines">
-      <div className="absolute inset-0 pattern-grid opacity-10" />
+    <section id="portfolio" className="py-32 md:py-40 section-dark relative overflow-hidden film-grain">
+      <div className="absolute inset-0 pattern-grid opacity-8" />
 
       <div className="section-container relative z-10">
         <ScrollReveal>
-          <div className="flex items-center gap-4 mb-6">
-            <span className="tag-label">Cases</span>
-            <div className="flex-1 h-px bg-cyan/15" />
+          <div className="text-center mb-24">
+            <span className="cine-label mb-6 block">Case Studies</span>
+            <div className="w-12 h-px bg-cyan/30 mx-auto mb-10" />
+            <h2 className="text-4xl md:text-6xl font-bold text-white leading-[0.95]">
+              Proven <span className="gradient-text">results</span>.
+            </h2>
           </div>
-          <h2 className="text-4xl md:text-6xl font-display font-black text-white leading-[0.9] mb-16">
-            PROVEN<br /><span className="gradient-text">RESULTS</span>
-          </h2>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {caseStudies.map((study, index) => (
-            <ScrollReveal key={index} direction={index === 0 ? "left" : "right"}>
-              <div className="group brutal-card overflow-hidden card-hover h-full border-t-2 border-t-cyan/30">
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-8">
-                    <div>
-                      <p className="font-mono text-[10px] text-cyan/40 uppercase tracking-widest mb-2">{study.client}</p>
-                      <h3 className="text-2xl font-display font-bold text-white">{study.title}</h3>
-                    </div>
-                    <div className="w-10 h-10 flex items-center justify-center bg-cyan/8 border border-cyan/20 group-hover:bg-cyan group-hover:border-cyan transition-all">
-                      <ArrowUpRight size={16} className="text-cyan group-hover:text-primary" />
-                    </div>
+            <ScrollReveal key={index} direction="up" delay={index * 0.15}>
+              <div className="group cine-card p-10 h-full">
+                <div className="flex items-start justify-between mb-10">
+                  <div>
+                    <p className="cine-label mb-3">{study.client}</p>
+                    <h3 className="text-2xl font-bold text-white">{study.title}</h3>
                   </div>
+                  <div className="w-10 h-10 flex items-center justify-center border border-cyan/10 group-hover:border-cyan/40 group-hover:bg-cyan/10 transition-all duration-700">
+                    <ArrowUpRight size={16} className="text-cyan/40 group-hover:text-cyan" />
+                  </div>
+                </div>
 
-                  <div className="space-y-3">
-                    {study.results.map((result, i) => (
-                      <div key={i} className="flex items-center gap-4 border-l-2 border-l-cyan/20 pl-4">
-                        <result.icon className="w-4 h-4 text-cyan flex-shrink-0" />
-                        <p className="text-white/60 text-sm font-medium">{result.text}</p>
-                      </div>
-                    ))}
-                  </div>
+                <div className="space-y-5">
+                  {study.results.map((result, i) => (
+                    <div key={i} className="flex items-center gap-4">
+                      <result.icon className="w-4 h-4 text-cyan/40 flex-shrink-0" />
+                      <p className="text-white/40 text-sm font-medium">{result.text}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </ScrollReveal>

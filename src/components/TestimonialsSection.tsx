@@ -1,55 +1,51 @@
-import { Quote, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const TestimonialsSection = () => {
   const testimonials = [
-    { quote: "Webflowra transformed our website and lead system. We now get daily leads without manual work.", author: "Rahul", role: "Business Coach", rating: 5 },
-    { quote: "Their automation saved us 20+ hours per week. Highly recommended.", author: "Sneha", role: "Agency Owner", rating: 5 },
-    { quote: "Professional, fast, and results-driven team.", author: "Amit", role: "SaaS Founder", rating: 5 },
+    { quote: "Webflowra transformed our website and lead system. We now get daily leads without manual work.", author: "Rahul", role: "Business Coach" },
+    { quote: "Their automation saved us 20+ hours per week. Highly recommended.", author: "Sneha", role: "Agency Owner" },
+    { quote: "Professional, fast, and results-driven team.", author: "Amit", role: "SaaS Founder" },
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 pattern-grid opacity-5" />
+    <section className="py-32 md:py-40 bg-background relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 cine-hr" />
 
       <div className="section-container relative z-10">
         <ScrollReveal>
-          <div className="flex items-center gap-4 mb-6">
-            <span className="tag-label">Transmissions</span>
-            <div className="flex-1 h-px bg-border" />
+          <div className="text-center mb-24">
+            <span className="cine-label mb-6 block">Testimonials</span>
+            <div className="w-12 h-px bg-cyan/30 mx-auto mb-10" />
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground leading-[0.95]">
+              What clients <span className="gradient-text">say</span>.
+            </h2>
           </div>
-          <h2 className="text-4xl md:text-6xl font-display font-black text-foreground leading-[0.9] mb-16">
-            CLIENT<br /><span className="gradient-text">FEEDBACK</span>
-          </h2>
         </ScrollReveal>
 
-        {/* Brutalist testimonial blocks — no rounding, hard lines */}
-        <div className="grid md:grid-cols-3 gap-3">
+        {/* Cinematic testimonials — large quotes, spacious */}
+        <div className="max-w-4xl mx-auto space-y-16">
           {testimonials.map((testimonial, index) => (
-            <ScrollReveal key={index} direction="up" delay={index * 0.1}>
-              <div className="border border-border bg-card p-8 card-hover relative h-full">
-                {/* Thick top accent */}
-                <div className="absolute top-0 left-0 w-12 h-[3px] bg-cyan" />
-
-                <div className="flex gap-0.5 mb-5">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 text-cyan fill-cyan" />
+            <ScrollReveal key={index} direction="up" delay={index * 0.15}>
+              <div className="text-center group">
+                <div className="flex gap-1 justify-center mb-8">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 text-cyan/30 fill-cyan/30" />
                   ))}
                 </div>
 
-                <p className="text-muted-foreground text-sm mb-8 leading-relaxed">
+                <p className="text-xl md:text-2xl text-foreground/70 font-light leading-relaxed italic mb-10 max-w-2xl mx-auto">
                   "{testimonial.quote}"
                 </p>
 
-                <div className="flex items-center gap-3 pt-4 border-t border-border">
-                  <div className="w-10 h-10 flex items-center justify-center bg-cyan/10 border border-cyan/20">
-                    <span className="text-cyan font-mono font-bold text-sm">{testimonial.author[0]}</span>
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground text-sm">{testimonial.author}</p>
-                    <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">{testimonial.role}</p>
-                  </div>
+                <div>
+                  <p className="text-foreground font-semibold text-sm">{testimonial.author}</p>
+                  <p className="cine-label mt-1">{testimonial.role}</p>
                 </div>
+
+                {index < testimonials.length - 1 && (
+                  <div className="cine-hr mt-16" />
+                )}
               </div>
             </ScrollReveal>
           ))}
