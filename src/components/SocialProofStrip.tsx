@@ -3,6 +3,7 @@ import celebrityLogo from "@/assets/client-celebrity.jpg";
 import astrologyLogo from "@/assets/client-astrology.png";
 import vidimLogo from "@/assets/client-vidim.png";
 import tridentLogo from "@/assets/client-trident.webp";
+import ScrollReveal from "./ScrollReveal";
 
 const SocialProofStrip = () => {
   const clients = [
@@ -14,25 +15,26 @@ const SocialProofStrip = () => {
   ];
 
   return (
-    <section className="py-12 bg-primary border-y border-cyan/10 relative overflow-hidden">
-      {/* Scanline BG */}
-      <div className="absolute inset-0 pattern-grid opacity-20" />
+    <section className="py-10 bg-primary border-y-2 border-cyan/10 relative">
+      <div className="section-container">
+        <div className="flex items-center gap-6 mb-6">
+          <div className="w-8 h-px bg-cyan/40" />
+          <p className="font-mono text-[10px] text-white/30 uppercase tracking-[0.3em]">
+            Trusted Clients
+          </p>
+          <div className="flex-1 h-px bg-white/5" />
+        </div>
 
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 relative z-10">
-        <p className="text-center terminal-text text-xs mb-8 opacity-50 uppercase tracking-[0.3em]">
-          <span className="text-neon-magenta">▸</span> trusted_clients.map()
-        </p>
-
-        <div className="flex items-center justify-between gap-3 md:gap-4 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
           {clients.map((client, index) => (
             <div
               key={index}
-              className="flex-1 min-w-[140px] h-20 md:h-24 px-4 flex items-center justify-center rounded border border-cyan/10 bg-white/5 hover:border-cyan/30 hover:bg-cyan/5 transition-all group"
+              className="flex-1 min-w-[130px] h-16 md:h-20 px-4 flex items-center justify-center border border-cyan/8 bg-white/[0.02] hover:border-cyan/25 hover:bg-cyan/[0.03] transition-all group"
             >
               <img
                 src={client.logo}
                 alt={client.name}
-                className="h-12 md:h-16 w-auto max-w-[160px] object-contain opacity-60 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
+                className="h-10 md:h-14 w-auto max-w-[140px] object-contain opacity-40 group-hover:opacity-80 transition-opacity grayscale group-hover:grayscale-0"
               />
             </div>
           ))}
