@@ -2,75 +2,50 @@ import { Search, Palette, Cog, TrendingUp } from "lucide-react";
 
 const HowItWorksSection = () => {
   const steps = [
-    {
-      number: "01",
-      icon: Search,
-      title: "Discover",
-      description:
-        "We understand your business goals, audience, and growth challenges.",
-    },
-    {
-      number: "02",
-      icon: Palette,
-      title: "Design",
-      description:
-        "We design your website and build your digital growth system.",
-    },
-    {
-      number: "03",
-      icon: Cog,
-      title: "Automate",
-      description: "We set up marketing and workflow automation.",
-    },
-    {
-      number: "04",
-      icon: TrendingUp,
-      title: "Scale",
-      description: "We optimize, track results, and help you scale faster.",
-    },
+    { number: "01", icon: Search, title: "Discover", description: "We decode your business goals, audience, and growth blockers." },
+    { number: "02", icon: Palette, title: "Design", description: "We architect your website and build your digital growth system." },
+    { number: "03", icon: Cog, title: "Automate", description: "We deploy marketing and workflow automation pipelines." },
+    { number: "04", icon: TrendingUp, title: "Scale", description: "We optimize, track metrics, and accelerate growth." },
   ];
 
   return (
     <section id="how-it-works" className="py-20 md:py-28 section-navy relative overflow-hidden">
-      {/* Background Effects */}
       <div className="absolute inset-0 pattern-grid opacity-10" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl" />
 
       <div className="section-container relative z-10">
-        {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-4">
-            How It Works
+          <p className="terminal-text text-xs mb-4 opacity-50 uppercase tracking-[0.2em]">
+            <span className="text-neon-magenta">$</span> process.execute()
           </p>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
-            Our simple 4-step growth process
+            4-step <span className="gradient-text">protocol</span>
           </h2>
         </div>
 
-        {/* Steps */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, index) => (
-            <div key={index} className="relative">
-              {/* Connector Line */}
+            <div key={index} className="relative group">
+              {/* Connector */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-16 left-[60%] w-full h-0.5 bg-gradient-to-r from-accent/50 to-accent/10" />
+                <div className="hidden lg:block absolute top-16 left-[60%] w-full h-px bg-gradient-to-r from-cyan/40 to-transparent" />
               )}
 
-              <div className="text-center">
-                {/* Step Number */}
-                <div className="relative inline-flex mb-6">
-                  <div className="w-32 h-32 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group hover:border-accent/50 hover:bg-white/10 transition-all card-hover">
-                    <step.icon className="w-12 h-12 text-accent" />
+              <div className="text-center cyber-card p-8 card-hover">
+                {/* Step number */}
+                <span className="font-mono text-neon-magenta text-xs font-bold mb-4 block opacity-60">
+                  [{step.number}]
+                </span>
+
+                <div className="inline-flex mb-5">
+                  <div className="w-20 h-20 rounded flex items-center justify-center bg-cyan/5 border border-cyan/20 group-hover:border-cyan/50 group-hover:shadow-[0_0_30px_hsl(190_100%_50%/0.2)] transition-all">
+                    <step.icon className="w-9 h-9 text-cyan" />
                   </div>
-                  <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm flex items-center justify-center">
-                    {step.number}
-                  </span>
                 </div>
 
-                <h3 className="text-xl font-display font-bold text-white mb-3">
+                <h3 className="text-lg font-display font-bold text-white mb-2">
                   {step.title}
                 </h3>
-                <p className="text-white/60">{step.description}</p>
+                <p className="text-white/40 text-sm">{step.description}</p>
               </div>
             </div>
           ))}
