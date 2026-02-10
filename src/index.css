@@ -117,12 +117,12 @@
 
   .btn-ghost {
     @apply inline-flex items-center gap-3 font-medium text-xs px-10 py-4 uppercase tracking-[0.2em] transition-all duration-300;
-    color: hsl(0 0% 93% / 0.5);
-    border: 1px solid hsl(0 0% 93% / 0.1);
+    color: hsl(200 80% 80% / 0.5);
+    border: 1px solid hsl(200 80% 70% / 0.15);
   }
   .btn-ghost:hover {
-    border-color: hsl(0 0% 93% / 0.3);
-    color: hsl(0 0% 93% / 0.9);
+    border-color: hsl(200 80% 70% / 0.4);
+    color: hsl(200 80% 85% / 0.9);
   }
 
   /* === ACCENT TEXT === */
