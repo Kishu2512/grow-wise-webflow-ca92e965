@@ -1,7 +1,8 @@
-import { TrendingUp, Clock, Users, ArrowUpRight } from "lucide-react";
-import ScrollReveal from "./ScrollReveal";
+import { TrendingUp, Clock, Users } from "lucide-react";
 
-const PortfolioSection = () => {
+interface Props { isActive: boolean; }
+
+const PortfolioSection = ({ isActive }: Props) => {
   const caseStudies = [
     {
       title: "Lead Generation System",
@@ -24,56 +25,43 @@ const PortfolioSection = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-32 md:py-40 section-living relative overflow-hidden organic-grain">
-      <div className="absolute inset-0 pattern-cells opacity-10" />
-
-      {/* Organic blobs */}
-      <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-bio-glow-warm/3 blob animate-drift" style={{ filter: 'blur(120px)' }} />
-
-      <div className="section-container relative z-10">
-        <ScrollReveal>
-          <div className="text-center mb-24">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <span className="pulse-dot" />
-              <span className="organism-label">Outcomes</span>
+    <div className="snap-panel bg-as-black">
+      <div className="section-container relative z-10 w-full">
+        {isActive && (
+          <>
+            <div className="text-center mb-16">
+              <span className="as-label opacity-0 animate-fade-in" style={{ animationDelay: '0.1s' }}>Case Studies</span>
+              <h2 className="text-4xl md:text-6xl font-bold text-white leading-[0.9] mt-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                Proven <span className="accent-text">results</span>.
+              </h2>
             </div>
-            <div className="w-12 h-px bg-bio-glow/30 mx-auto mb-10" />
-            <h2 className="text-4xl md:text-6xl font-bold text-white leading-[0.95]">
-              Living <span className="bio-text">proof</span>.
-            </h2>
-          </div>
-        </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {caseStudies.map((study, index) => (
-            <ScrollReveal key={index} direction="up" delay={index * 0.15}>
-              <div className="group living-card p-10 h-full">
-                <div className="flex items-start justify-between mb-10">
-                  <div>
-                    <p className="organism-label mb-3">{study.client}</p>
-                    <h3 className="text-2xl font-bold text-white">{study.title}</h3>
-                  </div>
-                  <div className="w-10 h-10 flex items-center justify-center rounded-full border border-bio-glow/10 group-hover:border-bio-glow/40 group-hover:bg-bio-glow/10 transition-all duration-700">
-                    <ArrowUpRight size={16} className="text-bio-glow/40 group-hover:text-bio-glow" />
-                  </div>
-                </div>
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {caseStudies.map((study, index) => (
+                <div
+                  key={index}
+                  className="opacity-0 animate-fade-in-up bg-as-dark border border-white/5 p-10 hover:border-as-accent/20 transition-all duration-500 group"
+                  style={{ animationDelay: `${0.5 + index * 0.15}s` }}
+                >
+                  <p className="as-label mb-3">{study.client}</p>
+                  <h3 className="text-2xl font-bold text-white mb-8">{study.title}</h3>
 
-                <div className="space-y-4">
-                  {study.results.map((result, i) => (
-                    <div key={i} className="flex items-center gap-4">
-                      <div className="flex-shrink-0">
-                        <span className="pulse-dot" />
+                  <div className="space-y-4">
+                    {study.results.map((result, i) => (
+                      <div key={i} className="flex items-center gap-4">
+                        <result.icon className="w-4 h-4 text-as-accent/30 flex-shrink-0" />
+                        <p className="text-white/30 text-sm">{result.text}</p>
                       </div>
-                      <p className="text-white/35 text-sm font-medium">{result.text}</p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
-    </section>
+      <div className="absolute bottom-8 left-8 panel-counter">09</div>
+    </div>
   );
 };
 

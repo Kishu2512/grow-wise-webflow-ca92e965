@@ -1,84 +1,45 @@
-import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import webflowraLogo from "@/assets/webflowra-logo.png";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+interface NavbarProps {
+  activeSection: number;
+  totalSections: number;
+}
+
+const Navbar = ({ activeSection, totalSections }: NavbarProps) => {
   const whatsappNumber = "917204931995";
   const whatsappMessage = encodeURIComponent("Hi! I'd like to get a free strategy call.");
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const navLinks = [
-    { href: "#services", label: "Services" },
-    { href: "#how-it-works", label: "Process" },
-    { href: "#team", label: "Team" },
-    { href: "#portfolio", label: "Work" },
-  ];
-
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-      scrolled ? "bg-bio-deep/90 backdrop-blur-2xl border-b border-bio-glow/5" : "bg-transparent"
-    }`}>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
       <div className="section-container">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           <a href="#" className="relative z-10">
-            <img src={webflowraLogo} alt="Webflowra" className="w-28 md:w-32 h-auto opacity-90 hover:opacity-100 transition-opacity duration-500" />
+            <img src={webflowraLogo} alt="Webflowra" className="w-24 h-auto opacity-60 hover:opacity-100 transition-opacity duration-300" />
           </a>
 
-          <div className="hidden md:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-white/35 hover:text-bio-glow transition-all duration-500 text-xs tracking-[0.2em] uppercase animated-underline"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          <div className="hidden md:block">
-            <a
-              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs tracking-[0.15em] uppercase font-medium px-6 py-2.5 bg-bio-glow/10 text-bio-glow border border-bio-glow/20 hover:bg-bio-glow hover:text-bio-deep transition-all duration-500 rounded-full"
-            >
-              Let's Talk
-            </a>
-          </div>
-
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white/60 p-2">
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-
-        {isOpen && (
-          <div className="md:hidden py-8 border-t border-white/5">
-            <div className="flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <a key={link.href} href={link.href} className="text-white/40 hover:text-bio-glow text-sm tracking-[0.2em] uppercase transition-colors duration-500" onClick={() => setIsOpen(false)}>
-                  {link.label}
-                </a>
-              ))}
-              <a
-                href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs tracking-[0.15em] uppercase font-medium px-6 py-3 bg-bio-glow text-bio-deep text-center mt-2 rounded-full"
-                onClick={() => setIsOpen(false)}
-              >
-                Let's Talk
-              </a>
+          {/* Progress bar */}
+          <div className="hidden md:flex items-center gap-6">
+            <div className="w-32 h-px bg-white/5 relative">
+              <div
+                className="absolute left-0 top-0 h-full bg-as-accent transition-all duration-700"
+                style={{ width: `${((activeSection + 1) / totalSections) * 100}%` }}
+              />
             </div>
+            <span className="font-mono text-[10px] text-white/15 tracking-wider">
+              {String(activeSection + 1).padStart(2, '0')}
+            </span>
           </div>
-        )}
+
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[10px] tracking-[0.2em] uppercase font-bold px-5 py-2 bg-as-accent text-as-black transition-all duration-300 hover:scale-105"
+          >
+            Talk
+          </a>
+        </div>
       </div>
     </nav>
   );
