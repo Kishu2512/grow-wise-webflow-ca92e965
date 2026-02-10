@@ -11,33 +11,40 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-32 md:py-40 section-dark relative overflow-hidden film-grain">
-      <div className="absolute inset-0 pattern-grid opacity-10" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan/3 rounded-full blur-[200px] animate-breathe" />
+    <section id="services" className="py-32 md:py-40 section-living relative overflow-hidden organic-grain">
+      <div className="absolute inset-0 pattern-cells opacity-15" />
+
+      {/* Living blobs */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-bio-glow/3 blob animate-breathe" style={{ filter: 'blur(180px)' }} />
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-bio-pulse/3 blob animate-drift delay-2000" style={{ filter: 'blur(100px)' }} />
 
       <div className="section-container relative z-10">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto text-center mb-24">
-            <span className="cine-label mb-6 block">What We Do</span>
-            <div className="w-12 h-px bg-cyan/30 mx-auto mb-10" />
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <span className="pulse-dot" />
+              <span className="organism-label">Capabilities</span>
+            </div>
+            <div className="w-12 h-px bg-bio-glow/30 mx-auto mb-10" />
             <h2 className="text-4xl md:text-6xl font-bold text-white leading-[0.95]">
-              Everything you need<br />to <span className="gradient-text">grow</span>.
+              Everything your<br />ecosystem <span className="bio-text">needs</span>.
             </h2>
           </div>
         </ScrollReveal>
 
-        {/* Cinematic staggered layout */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, index) => (
             <ScrollReveal key={index} direction="fade" delay={index * 0.1}>
-              <div className="group p-10 bg-primary/80 hover:bg-primary/60 transition-all duration-700 h-full relative overflow-hidden">
-                {/* Subtle glow on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 bg-gradient-to-br from-cyan/5 to-transparent" />
+              <div className="group living-card p-8 h-full relative overflow-hidden">
+                {/* Bio glow on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 rounded-[20px]" style={{ background: 'radial-gradient(circle at 30% 30%, hsl(160 100% 40% / 0.06), transparent 70%)' }} />
 
                 <div className="relative z-10">
-                  <service.icon className="w-7 h-7 text-cyan/40 group-hover:text-cyan/80 transition-all duration-700 mb-8" />
+                  <div className="feature-icon-organic mb-8">
+                    <service.icon className="w-6 h-6 text-bio-glow/60 group-hover:text-bio-glow transition-all duration-700" />
+                  </div>
                   <h3 className="text-xl font-bold text-white mb-4 leading-tight">{service.title}</h3>
-                  <p className="text-white/30 text-sm leading-relaxed group-hover:text-white/50 transition-colors duration-700">{service.description}</p>
+                  <p className="text-white/25 text-sm leading-relaxed group-hover:text-white/45 transition-colors duration-700">{service.description}</p>
                 </div>
               </div>
             </ScrollReveal>
