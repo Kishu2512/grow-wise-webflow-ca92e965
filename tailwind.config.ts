@@ -46,8 +46,9 @@ export default {
           muted: "hsl(var(--as-muted))",
           accent: "hsl(var(--as-accent))",
           "accent-dim": "hsl(var(--as-accent-dim))",
-          red: "hsl(var(--as-red))",
-          blue: "hsl(var(--as-blue))",
+          "accent-light": "hsl(var(--as-accent-light))",
+          deep: "hsl(var(--as-deep))",
+          navy: "hsl(var(--as-navy))",
         },
       },
       borderRadius: {
