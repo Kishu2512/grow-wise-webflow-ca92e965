@@ -1,24 +1,26 @@
 import { useEffect, useRef } from "react";
 
-interface Particle {
+interface Spore {
   x: number;
   y: number;
   vx: number;
   vy: number;
   radius: number;
   opacity: number;
+  phase: number;
+  speed: number;
 }
 
 const ParticleNetwork = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
-  const particlesRef = useRef<Particle[]>([]);
+  const sporesRef = useRef<Spore[]>([]);
   const animFrameRef = useRef<number>(0);
+  const timeRef = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -27,114 +29,108 @@ const ParticleNetwork = () => {
       canvas.height = canvas.offsetHeight * window.devicePixelRatio;
       ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
     };
-
     resize();
     window.addEventListener("resize", resize);
 
-    // Initialize particles
-    const count = Math.min(80, Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 12000));
-    const particles: Particle[] = [];
+    const count = Math.min(60, Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 15000));
+    const spores: Spore[] = [];
     for (let i = 0; i < count; i++) {
-      particles.push({
+      spores.push({
         x: Math.random() * canvas.offsetWidth,
         y: Math.random() * canvas.offsetHeight,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        radius: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        radius: Math.random() * 3 + 1.5,
+        opacity: Math.random() * 0.4 + 0.1,
+        phase: Math.random() * Math.PI * 2,
+        speed: Math.random() * 0.5 + 0.5,
       });
     }
-    particlesRef.current = particles;
+    sporesRef.current = spores;
 
-    const connectionDistance = 150;
-    const mouseRadius = 200;
+    const connectionDistance = 160;
+    const mouseRadius = 180;
 
     const animate = () => {
       const w = canvas.offsetWidth;
       const h = canvas.offsetHeight;
       ctx.clearRect(0, 0, w, h);
-
+      timeRef.current += 0.008;
+      const t = timeRef.current;
       const mouse = mouseRef.current;
 
-      particles.forEach((p) => {
-        // Mouse attraction
-        const dx = mouse.x - p.x;
-        const dy = mouse.y - p.y;
+      spores.forEach((s) => {
+        // Organic drift — sine-wave wandering
+        s.vx += Math.sin(t * s.speed + s.phase) * 0.003;
+        s.vy += Math.cos(t * s.speed * 0.7 + s.phase) * 0.003;
+
+        // Mouse repulsion (organic — they scatter like organisms)
+        const dx = mouse.x - s.x;
+        const dy = mouse.y - s.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < mouseRadius && dist > 0) {
-          const force = (mouseRadius - dist) / mouseRadius * 0.02;
-          p.vx += dx / dist * force;
-          p.vy += dy / dist * force;
+          const force = ((mouseRadius - dist) / mouseRadius) * 0.015;
+          s.vx -= (dx / dist) * force;
+          s.vy -= (dy / dist) * force;
         }
 
-        // Damping
-        p.vx *= 0.99;
-        p.vy *= 0.99;
+        s.vx *= 0.985;
+        s.vy *= 0.985;
+        s.x += s.vx;
+        s.y += s.vy;
 
-        p.x += p.vx;
-        p.y += p.vy;
+        if (s.x < 0 || s.x > w) s.vx *= -1;
+        if (s.y < 0 || s.y > h) s.vy *= -1;
+        s.x = Math.max(0, Math.min(w, s.x));
+        s.y = Math.max(0, Math.min(h, s.y));
 
-        // Bounce
-        if (p.x < 0 || p.x > w) p.vx *= -1;
-        if (p.y < 0 || p.y > h) p.vy *= -1;
-        p.x = Math.max(0, Math.min(w, p.x));
-        p.y = Math.max(0, Math.min(h, p.y));
+        // Breathing opacity
+        const breathe = Math.sin(t * 2 + s.phase) * 0.15 + 0.85;
+        const finalOpacity = s.opacity * breathe;
 
-        // Draw particle
+        // Organic glow — soft, warm
+        const grad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.radius * 5);
+        grad.addColorStop(0, `hsla(160, 100%, 45%, ${finalOpacity * 0.3})`);
+        grad.addColorStop(0.5, `hsla(160, 80%, 40%, ${finalOpacity * 0.08})`);
+        grad.addColorStop(1, `hsla(160, 80%, 40%, 0)`);
+        ctx.fillStyle = grad;
+        ctx.fillRect(s.x - s.radius * 5, s.y - s.radius * 5, s.radius * 10, s.radius * 10);
+
+        // Core spore
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(190, 100%, 50%, ${p.opacity})`;
-        ctx.fill();
-
-        // Glow
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(190, 100%, 50%, ${p.opacity * 0.1})`;
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(160, 100%, 50%, ${finalOpacity})`;
         ctx.fill();
       });
 
-      // Draw connections
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
+      // Mycelium connections — organic curves
+      for (let i = 0; i < spores.length; i++) {
+        for (let j = i + 1; j < spores.length; j++) {
+          const dx = spores[i].x - spores[j].x;
+          const dy = spores[i].y - spores[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-
           if (dist < connectionDistance) {
-            const opacity = (1 - dist / connectionDistance) * 0.15;
+            const opacity = (1 - dist / connectionDistance) * 0.12;
+            const mx = (spores[i].x + spores[j].x) / 2 + Math.sin(t + i) * 8;
+            const my = (spores[i].y + spores[j].y) / 2 + Math.cos(t + j) * 8;
             ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(190, 100%, 50%, ${opacity})`;
-            ctx.lineWidth = 0.5;
+            ctx.moveTo(spores[i].x, spores[i].y);
+            ctx.quadraticCurveTo(mx, my, spores[j].x, spores[j].y);
+            ctx.strokeStyle = `hsla(160, 80%, 45%, ${opacity})`;
+            ctx.lineWidth = 0.6;
             ctx.stroke();
           }
         }
       }
 
-      // Mouse connections
+      // Mouse aura — warm bio glow
       if (mouse.x > 0 && mouse.y > 0) {
-        particles.forEach((p) => {
-          const dx = mouse.x - p.x;
-          const dy = mouse.y - p.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < mouseRadius) {
-            const opacity = (1 - dist / mouseRadius) * 0.3;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `hsla(320, 100%, 60%, ${opacity})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        });
-
-        // Mouse glow
-        const gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 80);
-        gradient.addColorStop(0, "hsla(190, 100%, 50%, 0.08)");
-        gradient.addColorStop(1, "hsla(190, 100%, 50%, 0)");
-        ctx.fillStyle = gradient;
-        ctx.fillRect(mouse.x - 80, mouse.y - 80, 160, 160);
+        const grad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 100);
+        grad.addColorStop(0, "hsla(45, 100%, 60%, 0.05)");
+        grad.addColorStop(0.5, "hsla(160, 100%, 40%, 0.03)");
+        grad.addColorStop(1, "hsla(160, 100%, 40%, 0)");
+        ctx.fillStyle = grad;
+        ctx.fillRect(mouse.x - 100, mouse.y - 100, 200, 200);
       }
 
       animFrameRef.current = requestAnimationFrame(animate);
@@ -144,15 +140,9 @@ const ParticleNetwork = () => {
 
     const handleMouse = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
-      mouseRef.current = {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      };
+      mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
     };
-
-    const handleLeave = () => {
-      mouseRef.current = { x: -1000, y: -1000 };
-    };
+    const handleLeave = () => { mouseRef.current = { x: -1000, y: -1000 }; };
 
     canvas.addEventListener("mousemove", handleMouse);
     canvas.addEventListener("mouseleave", handleLeave);

@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-      scrolled ? "bg-primary/90 backdrop-blur-2xl border-b border-white/5" : "bg-transparent"
+      scrolled ? "bg-bio-deep/90 backdrop-blur-2xl border-b border-bio-glow/5" : "bg-transparent"
     }`}>
       <div className="section-container">
         <div className="flex items-center justify-between h-20">
@@ -36,7 +36,7 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-white/40 hover:text-white transition-all duration-500 text-xs tracking-[0.2em] uppercase animated-underline"
+                className="text-white/35 hover:text-bio-glow transition-all duration-500 text-xs tracking-[0.2em] uppercase animated-underline"
               >
                 {link.label}
               </a>
@@ -48,7 +48,7 @@ const Navbar = () => {
               href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs tracking-[0.15em] uppercase font-medium px-6 py-2.5 bg-cyan/10 text-cyan border border-cyan/20 hover:bg-cyan hover:text-primary transition-all duration-500"
+              className="text-xs tracking-[0.15em] uppercase font-medium px-6 py-2.5 bg-bio-glow/10 text-bio-glow border border-bio-glow/20 hover:bg-bio-glow hover:text-bio-deep transition-all duration-500 rounded-full"
             >
               Let's Talk
             </a>
@@ -63,7 +63,7 @@ const Navbar = () => {
           <div className="md:hidden py-8 border-t border-white/5">
             <div className="flex flex-col gap-6">
               {navLinks.map((link) => (
-                <a key={link.href} href={link.href} className="text-white/40 hover:text-white text-sm tracking-[0.2em] uppercase transition-colors duration-500" onClick={() => setIsOpen(false)}>
+                <a key={link.href} href={link.href} className="text-white/40 hover:text-bio-glow text-sm tracking-[0.2em] uppercase transition-colors duration-500" onClick={() => setIsOpen(false)}>
                   {link.label}
                 </a>
               ))}
@@ -71,7 +71,7 @@ const Navbar = () => {
                 href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs tracking-[0.15em] uppercase font-medium px-6 py-3 bg-cyan text-primary text-center mt-2"
+                className="text-xs tracking-[0.15em] uppercase font-medium px-6 py-3 bg-bio-glow text-bio-deep text-center mt-2 rounded-full"
                 onClick={() => setIsOpen(false)}
               >
                 Let's Talk

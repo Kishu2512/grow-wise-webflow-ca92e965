@@ -7,8 +7,8 @@ const HeroSection = () => {
   const whatsappMessage = encodeURIComponent("Hi! I'd like to get a free strategy call.");
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden film-grain vignette">
-      {/* Cinematic BG — slow zoom */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden organic-grain vignette-organic">
+      {/* Organic BG */}
       <div className="absolute inset-0 animate-slow-zoom">
         <div
           className="absolute inset-0"
@@ -16,70 +16,73 @@ const HeroSection = () => {
             backgroundImage: `url(${heroBg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            filter: "saturate(0.15) contrast(1.2) brightness(0.4)",
+            filter: "saturate(0.2) contrast(1.1) brightness(0.3) hue-rotate(30deg)",
           }}
         />
       </div>
 
-      {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary" />
+      {/* Living gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-bio-deep/70 via-bio-deep/50 to-bio-deep" />
 
-      {/* Particles — atmospheric */}
+      {/* Bioluminescent blobs */}
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-bio-glow/5 blob animate-breathe" style={{ zIndex: 2, filter: 'blur(120px)' }} />
+      <div className="absolute bottom-1/3 right-1/5 w-[350px] h-[350px] bg-bio-pulse/4 blob animate-breathe delay-2000" style={{ zIndex: 2, filter: 'blur(100px)' }} />
+      <div className="absolute top-2/3 left-2/3 w-[250px] h-[250px] bg-bio-glow-warm/3 blob animate-drift" style={{ zIndex: 2, filter: 'blur(80px)' }} />
+
+      {/* Spore network */}
       <ParticleNetwork />
 
-      {/* Subtle grid */}
-      <div className="absolute inset-0 pattern-grid opacity-30" style={{ zIndex: 2 }} />
-
-      {/* Atmospheric glow */}
-      <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-cyan/5 rounded-full blur-[200px] animate-breathe" style={{ zIndex: 2 }} />
-      <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-neon-magenta/3 rounded-full blur-[150px] animate-breathe delay-300" style={{ zIndex: 2 }} />
+      {/* Cell pattern */}
+      <div className="absolute inset-0 pattern-cells opacity-40" style={{ zIndex: 2 }} />
 
       <div className="section-container relative" style={{ zIndex: 10 }}>
         <div className="max-w-5xl mx-auto text-center">
-          {/* Cinematic label */}
+          {/* Living indicator */}
           <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-            <span className="cine-label">Digital Growth Agency</span>
-            <div className="w-12 h-px bg-cyan/30 mx-auto mt-4 mb-12" />
+            <div className="flex items-center justify-center gap-3 mb-12">
+              <span className="pulse-dot" />
+              <span className="organism-label">Living Growth System</span>
+            </div>
           </div>
 
-          {/* Hero headline — cinematic scale with breathing room */}
+          {/* Hero headline */}
           <h1 className="text-5xl md:text-7xl lg:text-[6.5rem] font-bold text-white leading-[0.95] mb-10 animate-fade-in-up opacity-0" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
-            Build.{" "}
-            <span className="gradient-text">Automate.</span>
-            <br />Scale.
+            Grow.{" "}
+            <span className="bio-text">Evolve.</span>
+            <br />Thrive.
           </h1>
 
-          {/* Subtitle — elegant, airy */}
-          <p className="text-lg md:text-xl text-white/35 max-w-xl mx-auto mb-14 leading-relaxed font-light animate-fade-in-up opacity-0" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
-            We architect high-converting websites and deploy intelligent automation
-            that grows your business on autopilot.
+          {/* Subtitle */}
+          <p className="text-lg md:text-xl text-white/30 max-w-xl mx-auto mb-14 leading-relaxed font-light animate-fade-in-up opacity-0" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
+            We build living digital ecosystems that attract, nurture,
+            and convert — growing your business organically, 24/7.
           </p>
 
-          {/* CTAs — minimal, spaced */}
+          {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5 animate-fade-in-up opacity-0" style={{ animationDelay: '1.2s', animationFillMode: 'forwards' }}>
             <a
               href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary group"
+              className="btn-living group"
             >
               Get a Free Strategy Call
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-500" />
             </a>
-            <a href="#how-it-works" className="btn-secondary">
+            <a href="#how-it-works" className="btn-membrane">
               <Play size={14} />
               See How It Works
             </a>
           </div>
 
-          {/* Trust — whisper */}
-          <p className="mt-20 cine-label animate-fade-in-up opacity-0" style={{ animationDelay: '1.6s', animationFillMode: 'forwards', color: 'hsl(0 0% 100% / 0.15)' }}>
+          {/* Trust */}
+          <p className="mt-20 organism-label animate-fade-in-up opacity-0" style={{ animationDelay: '1.6s', animationFillMode: 'forwards', color: 'hsl(0 0% 100% / 0.12)' }}>
             Trusted by startups & businesses across India
           </p>
         </div>
       </div>
 
-      {/* Bottom fade — cinematic wipe */}
+      {/* Bottom organic fade */}
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" style={{ zIndex: 3 }} />
     </section>
   );
