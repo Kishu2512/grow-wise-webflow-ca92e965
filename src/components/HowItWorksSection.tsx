@@ -3,45 +3,48 @@ import ScrollReveal from "./ScrollReveal";
 
 const HowItWorksSection = () => {
   const steps = [
-    { number: "01", icon: Search, title: "Discover", description: "We decode your business goals, audience, and growth blockers." },
-    { number: "02", icon: Palette, title: "Design", description: "We architect your website and build your digital growth system." },
-    { number: "03", icon: Cog, title: "Automate", description: "We deploy marketing and workflow automation pipelines." },
-    { number: "04", icon: TrendingUp, title: "Scale", description: "We optimize, track metrics, and accelerate growth." },
+    { number: "01", icon: Search, title: "Discover", description: "We decode your goals, audience, and growth blockers." },
+    { number: "02", icon: Palette, title: "Design", description: "We architect your website and digital growth system." },
+    { number: "03", icon: Cog, title: "Automate", description: "We deploy marketing and workflow automation." },
+    { number: "04", icon: TrendingUp, title: "Scale", description: "We optimize, track, and accelerate growth." },
   ];
 
   return (
-    <section id="how-it-works" className="py-20 md:py-28 section-navy relative overflow-hidden">
-      <div className="absolute inset-0 pattern-grid opacity-10" />
+    <section id="how-it-works" className="py-24 md:py-32 bg-background relative overflow-hidden">
+      <div className="absolute inset-0 pattern-grid opacity-5" />
 
       <div className="section-container relative z-10">
         <ScrollReveal>
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <p className="terminal-text text-xs mb-4 opacity-50 uppercase tracking-[0.2em]">
-              <span className="text-neon-magenta">$</span> process.execute()
-            </p>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
-              4-step <span className="gradient-text">protocol</span>
-            </h2>
+          <div className="flex items-center gap-4 mb-6">
+            <span className="tag-label">Process</span>
+            <div className="flex-1 h-px bg-border" />
           </div>
+          <h2 className="text-4xl md:text-6xl font-display font-black text-foreground leading-[0.9] mb-16">
+            4-STEP<br /><span className="gradient-text">PROTOCOL</span>
+          </h2>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Brutalist horizontal timeline — stacked blocks */}
+        <div className="grid md:grid-cols-4 gap-0">
           {steps.map((step, index) => (
             <ScrollReveal key={index} direction="up" delay={index * 0.12}>
-              <div className="relative group">
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-16 left-[60%] w-full h-px bg-gradient-to-r from-cyan/40 to-transparent" />
-                )}
-                <div className="text-center cyber-card p-8 card-hover">
-                  <span className="font-mono text-neon-magenta text-xs font-bold mb-4 block opacity-60">[{step.number}]</span>
-                  <div className="inline-flex mb-5">
-                    <div className="w-20 h-20 rounded flex items-center justify-center bg-cyan/5 border border-cyan/20 group-hover:border-cyan/50 group-hover:shadow-[0_0_30px_hsl(190_100%_50%/0.2)] transition-all">
-                      <step.icon className="w-9 h-9 text-cyan" />
-                    </div>
+              <div className="relative group border border-border bg-card hover:bg-cyan/[0.02] transition-all p-8 md:p-6 lg:p-8">
+                {/* Giant step number */}
+                <span className="brutal-number">{step.number}</span>
+
+                <div className="relative z-10">
+                  <div className="w-14 h-14 flex items-center justify-center bg-cyan/8 border border-cyan/20 mb-6 group-hover:shadow-[3px_3px_0_hsl(190_100%_50%/0.2)] transition-all">
+                    <step.icon className="w-7 h-7 text-cyan" />
                   </div>
-                  <h3 className="text-lg font-display font-bold text-white mb-2">{step.title}</h3>
-                  <p className="text-white/40 text-sm">{step.description}</p>
+
+                  <h3 className="text-lg font-display font-bold text-foreground mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm">{step.description}</p>
                 </div>
+
+                {/* Connector */}
+                {index < steps.length - 1 && (
+                  <div className="hidden md:block absolute right-0 top-1/2 w-4 h-px bg-cyan/30 translate-x-2 z-20" />
+                )}
               </div>
             </ScrollReveal>
           ))}

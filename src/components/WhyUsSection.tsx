@@ -12,52 +12,53 @@ const WhyUsSection = () => {
   ];
 
   const stats = [
-    { value: "50+", label: "Projects Deployed" },
-    { value: "3×", label: "Avg. Lead Increase" },
+    { value: "50+", label: "Projects" },
+    { value: "3×", label: "Lead Increase" },
     { value: "80%", label: "Time Saved" },
-    { value: "24/7", label: "Automation Running" },
+    { value: "24/7", label: "Running" },
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 pattern-grid opacity-5" />
+    <section className="py-24 md:py-32 section-navy relative overflow-hidden scanlines">
+      <div className="absolute inset-0 pattern-grid opacity-10" />
 
       <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="relative grid grid-cols-2 gap-4">
+        {/* Brutalist stats — oversized numbers in a raw horizontal strip */}
+        <ScrollReveal>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 mb-20 border-2 border-cyan/15">
             {stats.map((stat, i) => (
-              <ScrollReveal key={i} direction="scale" delay={i * 0.1}>
-                <div className={`p-7 rounded border text-center card-hover ${
-                  i % 2 === 0 ? "bg-primary border-cyan/20" : "bg-card border-border"
-                }`}>
-                  <p className="stats-highlight mb-2">{stat.value}</p>
-                  <p className={i % 2 === 0 ? "text-white/50 text-sm" : "text-muted-foreground text-sm"}>
-                    {stat.label}
-                  </p>
+              <div key={i} className="p-8 md:p-10 text-center border-r border-b border-cyan/10 last:border-r-0 md:[&:nth-child(n+3)]:border-b-0">
+                <p className="stats-highlight mb-2">{stat.value}</p>
+                <p className="font-mono text-[10px] text-white/30 uppercase tracking-[0.3em]">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        {/* Why us content */}
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
+          <ScrollReveal direction="left" className="lg:col-span-5">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-px bg-cyan/40" />
+              <span className="tag-label">Why Us</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-display font-black text-white leading-[0.9]">
+              WHY<br /><span className="gradient-text">WEBFLOWRA</span>?
+            </h2>
+          </ScrollReveal>
+
+          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-2">
+            {reasons.map((reason, index) => (
+              <ScrollReveal key={index} direction="right" delay={index * 0.06}>
+                <div className="flex items-center gap-3 p-4 border border-white/5 hover:border-cyan/20 hover:bg-cyan/[0.03] transition-all group">
+                  <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 bg-cyan/10 border border-cyan/20 group-hover:bg-cyan/20">
+                    <Check className="w-3.5 h-3.5 text-cyan" />
+                  </div>
+                  <span className="text-white/70 text-sm font-medium">{reason}</span>
                 </div>
               </ScrollReveal>
             ))}
           </div>
-
-          <ScrollReveal direction="right">
-            <p className="terminal-text text-xs mb-4 opacity-50 uppercase tracking-[0.2em]">
-              <span className="text-neon-magenta">$</span> why.choose_us()
-            </p>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-8">
-              Why <span className="gradient-text">Webflowra</span>?
-            </h2>
-
-            <div className="grid sm:grid-cols-2 gap-3">
-              {reasons.map((reason, index) => (
-                <div key={index} className="flex items-center gap-3 p-3 rounded border border-transparent hover:border-cyan/20 hover:bg-cyan/5 transition-all">
-                  <div className="w-6 h-6 rounded flex items-center justify-center flex-shrink-0 bg-cyan/10 border border-cyan/20">
-                    <Check className="w-3.5 h-3.5 text-cyan" />
-                  </div>
-                  <span className="text-foreground text-sm font-medium">{reason}</span>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
         </div>
       </div>
     </section>

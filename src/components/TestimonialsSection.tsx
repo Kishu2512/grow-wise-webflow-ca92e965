@@ -9,42 +9,45 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 section-navy relative overflow-hidden scanlines">
-      <div className="absolute inset-0 pattern-grid opacity-10" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-neon-magenta/5 rounded-full blur-[120px]" />
+    <section className="py-24 md:py-32 bg-background relative overflow-hidden">
+      <div className="absolute inset-0 pattern-grid opacity-5" />
 
       <div className="section-container relative z-10">
         <ScrollReveal>
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <p className="terminal-text text-xs mb-4 opacity-50 uppercase tracking-[0.2em]">
-              <span className="text-neon-magenta">$</span> feedback.stream()
-            </p>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
-              Client <span className="gradient-text">transmissions</span>
-            </h2>
+          <div className="flex items-center gap-4 mb-6">
+            <span className="tag-label">Transmissions</span>
+            <div className="flex-1 h-px bg-border" />
           </div>
+          <h2 className="text-4xl md:text-6xl font-display font-black text-foreground leading-[0.9] mb-16">
+            CLIENT<br /><span className="gradient-text">FEEDBACK</span>
+          </h2>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        {/* Brutalist testimonial blocks — no rounding, hard lines */}
+        <div className="grid md:grid-cols-3 gap-3">
           {testimonials.map((testimonial, index) => (
-            <ScrollReveal key={index} direction="scale" delay={index * 0.1}>
-              <div className="cyber-card p-7 card-hover relative h-full">
-                <div className="absolute top-0 left-0 w-5 h-5 border-t border-l border-cyan/30" />
-                <div className="absolute bottom-0 right-0 w-5 h-5 border-b border-r border-cyan/30" />
-                <Quote className="w-8 h-8 text-cyan/15 mb-4" />
-                <div className="flex gap-0.5 mb-4">
+            <ScrollReveal key={index} direction="up" delay={index * 0.1}>
+              <div className="border border-border bg-card p-8 card-hover relative h-full">
+                {/* Thick top accent */}
+                <div className="absolute top-0 left-0 w-12 h-[3px] bg-cyan" />
+
+                <div className="flex gap-0.5 mb-5">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-cyan fill-cyan" />
+                    <Star key={i} className="w-3.5 h-3.5 text-cyan fill-cyan" />
                   ))}
                 </div>
-                <p className="text-white/60 text-sm mb-6 leading-relaxed italic">"{testimonial.quote}"</p>
-                <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-                  <div className="w-10 h-10 rounded flex items-center justify-center bg-cyan/10 border border-cyan/20">
+
+                <p className="text-muted-foreground text-sm mb-8 leading-relaxed">
+                  "{testimonial.quote}"
+                </p>
+
+                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                  <div className="w-10 h-10 flex items-center justify-center bg-cyan/10 border border-cyan/20">
                     <span className="text-cyan font-mono font-bold text-sm">{testimonial.author[0]}</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-white text-sm">{testimonial.author}</p>
-                    <p className="terminal-text text-[10px] opacity-40">{testimonial.role}</p>
+                    <p className="font-bold text-foreground text-sm">{testimonial.author}</p>
+                    <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">{testimonial.role}</p>
                   </div>
                 </div>
               </div>
