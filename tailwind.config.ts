@@ -78,6 +78,8 @@ export default {
           DEFAULT: "hsl(var(--slate))",
           light: "hsl(var(--slate-light))",
         },
+        "neon-magenta": "hsl(var(--neon-magenta))",
+        "neon-green": "hsl(var(--neon-green))",
       },
       borderRadius: {
         lg: "var(--radius)",
