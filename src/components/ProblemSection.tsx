@@ -1,4 +1,4 @@
-import { XCircle, AlertTriangle } from "lucide-react";
+import { AlertTriangle, X } from "lucide-react";
 import worriedBusinessman from "@/assets/worried-businessman.png";
 
 const ProblemSection = () => {
@@ -11,47 +11,56 @@ const ProblemSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 section-navy relative overflow-hidden">
-      {/* Background Effects */}
+    <section className="py-20 md:py-28 section-navy relative overflow-hidden scanlines">
       <div className="absolute inset-0 pattern-grid opacity-10" />
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-neon-magenta/5 rounded-full blur-[120px]" />
 
       <div className="section-container relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/20 border border-amber-500/30 rounded-full mb-6">
-            <AlertTriangle className="w-4 h-4 text-amber-400" />
-            <span className="text-amber-400 text-sm font-medium">Common Challenges</span>
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-2 border border-neon-magenta/30 bg-neon-magenta/10 rounded mb-6">
+            <AlertTriangle className="w-4 h-4 text-neon-magenta" />
+            <span className="terminal-text text-xs" style={{ color: 'hsl(320 100% 60%)' }}>
+              error: system_failure_detected
+            </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
-            Is your business stuck because…
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+            Is your business <span className="text-neon-magenta">stuck</span>?
           </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          {/* Illustration */}
+          {/* Image */}
           <div className="order-2 lg:order-1 flex justify-center">
             <div className="relative">
-              <div className="absolute inset-0 bg-accent/20 rounded-3xl blur-2xl transform -rotate-3" />
+              <div className="absolute -inset-2 border border-neon-magenta/20 rounded" />
               <img
                 src={worriedBusinessman}
-                alt="Overwhelmed business owner thinking about challenges"
-                className="relative rounded-2xl shadow-2xl max-w-md w-full border border-white/10"
+                alt="Overwhelmed business owner"
+                className="relative rounded max-w-md w-full border border-white/10"
+                style={{ filter: 'contrast(1.1) saturate(0.8)' }}
               />
+              {/* Corner brackets */}
+              <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-neon-magenta/50" />
+              <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-neon-magenta/50" />
             </div>
           </div>
 
-          {/* Problems List */}
-          <div className="order-1 lg:order-2 space-y-4">
+          {/* Problems */}
+          <div className="order-1 lg:order-2 space-y-3">
             {problems.map((problem, index) => (
               <div
                 key={index}
-                className="flex items-start gap-4 p-5 bg-white/5 backdrop-blur-sm border border-amber-500/20 rounded-xl group hover:bg-amber-500/10 hover:border-amber-500/40 transition-all"
+                className="flex items-start gap-4 p-4 cyber-card group hover:border-neon-magenta/40 transition-all"
               >
-                <div className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
-                  <XCircle className="w-5 h-5 text-amber-400" />
+                <div className="w-8 h-8 rounded flex items-center justify-center flex-shrink-0 bg-neon-magenta/10 border border-neon-magenta/20">
+                  <X className="w-4 h-4 text-neon-magenta" />
                 </div>
-                <p className="text-white/80 text-lg leading-relaxed">{problem}</p>
+                <div>
+                  <span className="terminal-text text-[10px] opacity-40 block mb-1" style={{ color: 'hsl(320 100% 60%)' }}>
+                    err_{String(index + 1).padStart(2, '0')}
+                  </span>
+                  <p className="text-white/70 text-base leading-relaxed">{problem}</p>
+                </div>
               </div>
             ))}
           </div>
