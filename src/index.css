@@ -29,15 +29,16 @@
     --ring: 45 100% 55%;
     --radius: 0px;
 
-    /* Anti-Scroll palette */
-    --as-black: 0 0% 4%;
-    --as-dark: 0 0% 7%;
-    --as-white: 0 0% 93%;
-    --as-muted: 0 0% 40%;
-    --as-accent: 45 100% 55%;
-    --as-accent-dim: 45 80% 40%;
-    --as-red: 0 70% 50%;
-    --as-blue: 220 60% 50%;
+    /* Anti-Scroll palette — Webflowra brand blues */
+    --as-black: 215 60% 4%;
+    --as-dark: 215 55% 7%;
+    --as-white: 200 20% 93%;
+    --as-muted: 210 15% 45%;
+    --as-accent: 200 100% 55%;
+    --as-accent-dim: 210 80% 40%;
+    --as-accent-light: 195 100% 70%;
+    --as-deep: 220 70% 18%;
+    --as-navy: 220 65% 12%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
