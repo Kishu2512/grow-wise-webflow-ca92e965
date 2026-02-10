@@ -1,4 +1,4 @@
-import { AlertTriangle, X } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 import worriedBusinessman from "@/assets/worried-businessman.png";
 import ScrollReveal from "./ScrollReveal";
 
@@ -12,49 +12,43 @@ const ProblemSection = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 section-navy relative overflow-hidden scanlines">
+    <section className="relative overflow-hidden film-grain">
+      {/* Full-bleed image background */}
+      <div className="absolute inset-0">
+        <img
+          src={worriedBusinessman}
+          alt=""
+          className="w-full h-full object-cover object-center opacity-15 animate-slow-zoom"
+          style={{ filter: 'saturate(0) contrast(1.3)' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80" />
+      </div>
+
       <div className="absolute inset-0 pattern-grid opacity-10" />
 
-      <div className="section-container relative z-10">
-        {/* Brutalist asymmetric header — RIGHT aligned */}
-        <ScrollReveal>
-          <div className="flex justify-end mb-16">
-            <div className="max-w-2xl text-right">
-              <div className="tag-label inline-block mb-6" style={{ color: 'hsl(320 100% 60%)', borderColor: 'hsl(320 100% 60% / 0.3)' }}>
-                ⚠ System Failure
-              </div>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-black text-white leading-[0.9]">
-                IS YOUR<br />BUSINESS<br /><span className="text-neon-magenta">STUCK</span>?
-              </h2>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        {/* Broken grid — image bleeds left, problems offset right */}
-        <div className="grid lg:grid-cols-12 gap-6 items-start">
-          <ScrollReveal direction="left" className="lg:col-span-5">
-            <div className="relative offset-border">
-              <img
-                src={worriedBusinessman}
-                alt="Overwhelmed business owner"
-                className="w-full border-2 border-white/10"
-                style={{ filter: 'contrast(1.1) saturate(0.6) brightness(0.9)' }}
-              />
-              {/* Overlapping label */}
-              <div className="absolute -bottom-4 -right-4 bg-neon-magenta px-4 py-2 font-mono text-[10px] text-white font-bold uppercase tracking-wider">
-                Pain Points Detected
-              </div>
-            </div>
+      <div className="section-container relative z-10 py-32 md:py-40">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          {/* Left — cinematic heading */}
+          <ScrollReveal direction="left">
+            <span className="cine-label mb-6 block">The Problem</span>
+            <div className="w-16 h-px bg-neon-magenta/30 mb-8" />
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.95] mb-8">
+              Is your<br />business<br /><span className="text-neon-magenta/80">stuck?</span>
+            </h2>
+            <p className="text-white/25 text-lg max-w-sm leading-relaxed">
+              These are the silent killers of growth that most businesses ignore.
+            </p>
           </ScrollReveal>
 
-          <div className="lg:col-span-7 lg:pl-6 space-y-2">
+          {/* Right — problems floating in */}
+          <div className="space-y-4">
             {problems.map((problem, index) => (
-              <ScrollReveal key={index} direction="right" delay={index * 0.08}>
-                <div className="flex items-start gap-4 p-5 brutal-card group hover:border-neon-magenta/30 border-l-2 border-l-neon-magenta/30">
-                  <span className="font-mono text-neon-magenta text-xs font-bold mt-1 flex-shrink-0 opacity-40">
+              <ScrollReveal key={index} direction="right" delay={index * 0.12}>
+                <div className="flex items-start gap-5 p-6 bg-white/[0.02] border-l border-l-neon-magenta/20 hover:bg-white/[0.04] hover:border-l-neon-magenta/40 transition-all duration-700">
+                  <span className="cine-label mt-1 flex-shrink-0 opacity-30 text-neon-magenta" style={{ color: 'hsl(320 100% 60% / 0.4)' }}>
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <p className="text-white/60 text-base leading-relaxed">{problem}</p>
+                  <p className="text-white/50 text-base leading-relaxed">{problem}</p>
                 </div>
               </ScrollReveal>
             ))}
