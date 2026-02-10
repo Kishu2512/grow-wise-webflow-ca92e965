@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const WhyUsSection = () => {
   const reasons = [
@@ -10,38 +11,35 @@ const WhyUsSection = () => {
     "Long-term support",
   ];
 
+  const stats = [
+    { value: "50+", label: "Projects Deployed" },
+    { value: "3×", label: "Avg. Lead Increase" },
+    { value: "80%", label: "Time Saved" },
+    { value: "24/7", label: "Automation Running" },
+  ];
+
   return (
     <section className="py-20 md:py-28 bg-background relative overflow-hidden">
       <div className="absolute inset-0 pattern-grid opacity-5" />
 
       <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Stats */}
           <div className="relative grid grid-cols-2 gap-4">
-            {[
-              { value: "50+", label: "Projects Deployed" },
-              { value: "3×", label: "Avg. Lead Increase" },
-              { value: "80%", label: "Time Saved" },
-              { value: "24/7", label: "Automation Running" },
-            ].map((stat, i) => (
-              <div
-                key={i}
-                className={`p-7 rounded border text-center card-hover ${
-                  i % 2 === 0
-                    ? "bg-primary border-cyan/20"
-                    : "bg-card border-border"
-                }`}
-              >
-                <p className="stats-highlight mb-2">{stat.value}</p>
-                <p className={i % 2 === 0 ? "text-white/50 text-sm" : "text-muted-foreground text-sm"}>
-                  {stat.label}
-                </p>
-              </div>
+            {stats.map((stat, i) => (
+              <ScrollReveal key={i} direction="scale" delay={i * 0.1}>
+                <div className={`p-7 rounded border text-center card-hover ${
+                  i % 2 === 0 ? "bg-primary border-cyan/20" : "bg-card border-border"
+                }`}>
+                  <p className="stats-highlight mb-2">{stat.value}</p>
+                  <p className={i % 2 === 0 ? "text-white/50 text-sm" : "text-muted-foreground text-sm"}>
+                    {stat.label}
+                  </p>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
 
-          {/* Content */}
-          <div>
+          <ScrollReveal direction="right">
             <p className="terminal-text text-xs mb-4 opacity-50 uppercase tracking-[0.2em]">
               <span className="text-neon-magenta">$</span> why.choose_us()
             </p>
@@ -59,7 +57,7 @@ const WhyUsSection = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
