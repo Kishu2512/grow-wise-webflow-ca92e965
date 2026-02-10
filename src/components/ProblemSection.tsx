@@ -30,7 +30,7 @@ const ProblemSection = ({ isActive }: Props) => {
             <div>
               <span className="as-label opacity-0 animate-fade-in" style={{ animationDelay: '0.1s' }}>The Problem</span>
               <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.85] mt-6 opacity-0 animate-slide-left" style={{ animationDelay: '0.3s' }}>
-                Is your<br />business<br /><span style={{ color: 'hsl(0 70% 50%)' }}>stuck?</span>
+                Is your<br />business<br /><span className="accent-text" style={{ textShadow: '0 0 30px hsl(200 100% 55% / 0.3)' }}>stuck?</span>
               </h2>
             </div>
 

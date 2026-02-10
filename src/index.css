@@ -8,36 +8,37 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 93%;
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 93%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 93%;
-    --primary: 0 0% 93%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 93%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 50%;
-    --accent: 45 100% 55%;
-    --accent-foreground: 0 0% 4%;
+    --background: 215 60% 4%;
+    --foreground: 200 20% 93%;
+    --card: 215 55% 7%;
+    --card-foreground: 200 20% 93%;
+    --popover: 215 55% 7%;
+    --popover-foreground: 200 20% 93%;
+    --primary: 200 20% 93%;
+    --primary-foreground: 215 60% 4%;
+    --secondary: 220 50% 10%;
+    --secondary-foreground: 200 20% 93%;
+    --muted: 220 45% 12%;
+    --muted-foreground: 210 15% 50%;
+    --accent: 200 100% 55%;
+    --accent-foreground: 215 60% 4%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 45 100% 55%;
+    --border: 220 40% 14%;
+    --input: 220 40% 14%;
+    --ring: 200 100% 55%;
     --radius: 0px;
 
-    /* Anti-Scroll palette */
-    --as-black: 0 0% 4%;
-    --as-dark: 0 0% 7%;
-    --as-white: 0 0% 93%;
-    --as-muted: 0 0% 40%;
-    --as-accent: 45 100% 55%;
-    --as-accent-dim: 45 80% 40%;
-    --as-red: 0 70% 50%;
-    --as-blue: 220 60% 50%;
+    /* Anti-Scroll palette — Webflowra brand blues */
+    --as-black: 215 60% 4%;
+    --as-dark: 215 55% 7%;
+    --as-white: 200 20% 93%;
+    --as-muted: 210 15% 45%;
+    --as-accent: 200 100% 55%;
+    --as-accent-dim: 210 80% 40%;
+    --as-accent-light: 195 100% 70%;
+    --as-deep: 220 70% 18%;
+    --as-navy: 220 65% 12%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -100,7 +101,7 @@
   .as-label {
     font-family: 'Space Mono', monospace;
     @apply text-[10px] uppercase tracking-[0.5em];
-    color: hsl(0 0% 93% / 0.2);
+    color: hsl(200 100% 55% / 0.25);
   }
 
   /* === ANTI-SCROLL BUTTONS === */
@@ -111,17 +112,17 @@
   }
   .btn-anti:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 40px hsl(45 100% 55% / 0.3);
+    box-shadow: 0 0 40px hsl(200 100% 55% / 0.3);
   }
 
   .btn-ghost {
     @apply inline-flex items-center gap-3 font-medium text-xs px-10 py-4 uppercase tracking-[0.2em] transition-all duration-300;
-    color: hsl(0 0% 93% / 0.5);
-    border: 1px solid hsl(0 0% 93% / 0.1);
+    color: hsl(200 80% 80% / 0.5);
+    border: 1px solid hsl(200 80% 70% / 0.15);
   }
   .btn-ghost:hover {
-    border-color: hsl(0 0% 93% / 0.3);
-    color: hsl(0 0% 93% / 0.9);
+    border-color: hsl(200 80% 70% / 0.4);
+    color: hsl(200 80% 85% / 0.9);
   }
 
   /* === ACCENT TEXT === */
@@ -133,13 +134,13 @@
   .panel-counter {
     font-family: 'Space Mono', monospace;
     @apply text-[11px] tracking-[0.3em];
-    color: hsl(0 0% 93% / 0.1);
+    color: hsl(200 100% 55% / 0.12);
   }
 
   /* === DIVIDER LINE === */
   .as-line {
     @apply h-px;
-    background: hsl(0 0% 93% / 0.06);
+    background: hsl(200 100% 55% / 0.08);
   }
 
   /* === ANIMATIONS === */
