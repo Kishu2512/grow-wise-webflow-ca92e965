@@ -12,7 +12,7 @@ const ProblemSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 section-navy relative overflow-hidden scanlines">
+    <section className="py-20 md:py-28 md:min-h-screen md:flex md:items-center section-navy relative overflow-hidden scanlines">
       <div className="absolute inset-0 pattern-grid opacity-10" />
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-neon-magenta/5 rounded-full blur-[120px]" />
 
@@ -21,7 +21,7 @@ const ProblemSection = () => {
           <div className="max-w-3xl mx-auto text-center mb-14">
             <div className="inline-flex items-center gap-2 px-4 py-2 border border-neon-magenta/30 bg-neon-magenta/10 rounded mb-6">
               <AlertTriangle className="w-4 h-4 text-neon-magenta" />
-              <span className="terminal-text text-xs" style={{ color: 'hsl(320 100% 60%)' }}>
+              <span className="terminal-text text-xs" style={{ color: 'hsl(210 100% 65%)' }}>
                 error: system_failure_detected
               </span>
             </div>
@@ -54,7 +54,7 @@ const ProblemSection = () => {
                     <X className="w-4 h-4 text-neon-magenta" />
                   </div>
                   <div>
-                    <span className="terminal-text text-[10px] opacity-40 block mb-1" style={{ color: 'hsl(320 100% 60%)' }}>
+                    <span className="terminal-text text-[10px] opacity-40 block mb-1" style={{ color: 'hsl(210 100% 65%)' }}>
                       err_{String(index + 1).padStart(2, '0')}
                     </span>
                     <p className="text-white/70 text-base leading-relaxed">{problem}</p>

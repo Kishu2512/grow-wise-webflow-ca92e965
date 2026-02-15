@@ -123,7 +123,7 @@ const ParticleNetwork = () => {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `hsla(320, 100%, 60%, ${opacity})`;
+            ctx.strokeStyle = `hsla(210, 100%, 65%, ${opacity})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

@@ -7,7 +7,7 @@ const HeroSection = () => {
   const whatsappMessage = encodeURIComponent("Hi! I'd like to get a free strategy call.");
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary pt-20 scanlines">
+    <section className="relative min-h-screen md:h-screen flex items-center justify-center overflow-hidden bg-primary pt-20 scanlines">
       {/* Background Image */}
       <div
         className="absolute inset-0 opacity-15"
@@ -34,7 +34,7 @@ const HeroSection = () => {
 
       {/* Glow orbs */}
       <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-cyan/8 rounded-full blur-[120px]" style={{ zIndex: 2 }} />
-      <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-neon-magenta/5 rounded-full blur-[100px]" style={{ zIndex: 2 }} />
+      <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-cyan-light/5 rounded-full blur-[100px]" style={{ zIndex: 2 }} />
 
       <div className="section-container relative" style={{ zIndex: 10 }}>
         <div className="max-w-5xl mx-auto text-center">

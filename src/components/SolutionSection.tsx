@@ -11,7 +11,7 @@ const SolutionSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-background relative overflow-hidden">
+    <section className="py-20 md:py-28 md:min-h-screen md:flex md:items-center bg-background relative overflow-hidden">
       <div className="absolute inset-0 pattern-grid opacity-5" />
       <div className="absolute top-0 right-0 w-96 h-96 bg-cyan/5 rounded-full blur-[120px]" />
 
