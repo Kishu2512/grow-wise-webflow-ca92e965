@@ -24,7 +24,7 @@ const PortfolioSection = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-20 md:py-28 bg-background relative overflow-hidden">
+    <section id="portfolio" className="py-20 md:py-28 md:min-h-screen md:flex md:items-center bg-background relative overflow-hidden">
       <div className="absolute inset-0 pattern-grid opacity-5" />
 
       <div className="section-container relative z-10">

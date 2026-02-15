@@ -6,10 +6,10 @@ const FinalCTASection = () => {
   const whatsappMessage = encodeURIComponent("Hi! I'd like to book a free strategy call.");
 
   return (
-    <section id="contact" className="py-20 md:py-28 section-navy relative overflow-hidden scanlines">
+    <section id="contact" className="py-20 md:py-28 md:min-h-screen md:flex md:items-center section-navy relative overflow-hidden scanlines">
       <div className="absolute inset-0 pattern-grid opacity-20" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan/10 rounded-full blur-[150px]" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-neon-magenta/8 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-light/8 rounded-full blur-[120px]" />
 
       <div className="section-container relative z-10">
         <ScrollReveal direction="scale">

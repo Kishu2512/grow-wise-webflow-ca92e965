@@ -10,7 +10,7 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 md:py-28 section-navy relative overflow-hidden">
+    <section id="how-it-works" className="py-20 md:py-28 md:min-h-screen md:flex md:items-center section-navy relative overflow-hidden">
       <div className="absolute inset-0 pattern-grid opacity-10" />
 
       <div className="section-container relative z-10">

@@ -24,7 +24,7 @@ const TeamSection = () => {
   ];
 
   return (
-    <section id="team" className="py-20 md:py-28 section-navy relative overflow-hidden scanlines">
+    <section id="team" className="py-20 md:py-28 md:min-h-screen md:flex md:items-center section-navy relative overflow-hidden scanlines">
       <div className="absolute inset-0 pattern-grid opacity-15" />
 
       <div className="section-container relative z-10">

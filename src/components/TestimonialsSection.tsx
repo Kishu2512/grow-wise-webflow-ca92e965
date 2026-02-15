@@ -9,9 +9,9 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 section-navy relative overflow-hidden scanlines">
+    <section className="py-20 md:py-28 md:min-h-screen md:flex md:items-center section-navy relative overflow-hidden scanlines">
       <div className="absolute inset-0 pattern-grid opacity-10" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-neon-magenta/5 rounded-full blur-[120px]" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-light/5 rounded-full blur-[120px]" />
 
       <div className="section-container relative z-10">
         <ScrollReveal>

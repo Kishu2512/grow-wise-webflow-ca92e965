@@ -11,7 +11,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 md:py-28 section-navy relative overflow-hidden scanlines">
+    <section id="services" className="py-20 md:py-28 md:min-h-screen md:flex md:items-center section-navy relative overflow-hidden scanlines">
       <div className="absolute inset-0 pattern-grid opacity-15" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan/5 rounded-full blur-[150px]" />
 
