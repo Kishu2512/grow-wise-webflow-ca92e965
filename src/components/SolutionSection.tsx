@@ -1,46 +1,62 @@
-interface Props { isActive: boolean; }
+import { CheckCircle, Zap } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
-const SolutionSection = ({ isActive }: Props) => {
+const SolutionSection = () => {
   const benefits = [
     "Attract high-quality leads",
     "Nurture them automatically",
-    "Convert into customers",
-    "Save time & reduce manual work",
-    "Scale with predictable growth",
+    "Convert them into customers",
+    "Save time and reduce manual work",
+    "Scale your business with predictable growth",
   ];
 
   return (
-    <div className="snap-panel bg-as-dark">
-      <div className="section-container relative z-10 w-full">
-        {isActive && (
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="as-label opacity-0 animate-fade-in" style={{ animationDelay: '0.1s' }}>The Solution</span>
-              <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.85] mt-6 opacity-0 animate-slide-left" style={{ animationDelay: '0.3s' }}>
-                We build<br /><span className="accent-text">growth<br />systems.</span>
-              </h2>
-              <p className="text-white/20 text-lg leading-relaxed mt-8 max-w-md opacity-0 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                Website design + digital marketing + workflow automation — fused into one engine that runs 24/7.
-              </p>
+    <section className="py-20 md:py-28 bg-background relative overflow-hidden">
+      <div className="absolute inset-0 pattern-grid opacity-5" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-cyan/5 rounded-full blur-[120px]" />
+
+      <div className="section-container relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <ScrollReveal direction="left">
+            <div className="inline-flex items-center gap-2 px-4 py-2 border border-cyan/30 bg-cyan/5 rounded mb-6">
+              <Zap size={14} className="text-cyan" />
+              <span className="terminal-text text-xs">solution.deploy()</span>
             </div>
 
-            <div className="space-y-0">
-              {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="opacity-0 animate-slide-right border-b border-white/5 py-5 flex items-center gap-6 group"
-                  style={{ animationDelay: `${0.4 + index * 0.1}s` }}
-                >
-                  <span className="w-2 h-2 bg-as-accent/40 group-hover:bg-as-accent transition-colors duration-300 flex-shrink-0" />
-                  <p className="text-white/40 group-hover:text-white/70 text-lg font-light transition-colors duration-300">{benefit}</p>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
+              We build{" "}
+              <span className="gradient-text">growth systems</span>
+              <br />not just websites.
+            </h2>
+
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+              We fuse website design, digital marketing, and workflow
+              automation into a complete business engine that runs 24/7.
+            </p>
+
+            <a href="#contact" className="btn-primary inline-flex items-center gap-2">
+              Initialize Your System
+            </a>
+          </ScrollReveal>
+
+          <div className="space-y-3">
+            <p className="terminal-text text-xs opacity-40 mb-4 uppercase tracking-widest">
+              <span className="text-neon-magenta">$</span> system.capabilities:
+            </p>
+            {benefits.map((benefit, index) => (
+              <ScrollReveal key={index} direction="right" delay={index * 0.08}>
+                <div className="flex items-center gap-4 p-4 rounded border border-border bg-card hover:border-cyan/30 transition-all group corner-accents">
+                  <div className="w-9 h-9 rounded flex items-center justify-center flex-shrink-0 bg-cyan/10 border border-cyan/20 group-hover:shadow-[0_0_15px_hsl(190_100%_50%/0.3)] transition-shadow">
+                    <CheckCircle className="w-5 h-5 text-cyan" />
+                  </div>
+                  <p className="text-foreground font-medium">{benefit}</p>
                 </div>
-              ))}
-            </div>
+              </ScrollReveal>
+            ))}
           </div>
-        )}
+        </div>
       </div>
-      <div className="absolute bottom-8 left-8 panel-counter">04</div>
-    </div>
+    </section>
   );
 };
 

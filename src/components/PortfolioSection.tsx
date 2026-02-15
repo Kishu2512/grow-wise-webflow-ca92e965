@@ -1,8 +1,7 @@
-import { TrendingUp, Clock, Users } from "lucide-react";
+import { TrendingUp, Clock, Users, ArrowUpRight } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
-interface Props { isActive: boolean; }
-
-const PortfolioSection = ({ isActive }: Props) => {
+const PortfolioSection = () => {
   const caseStudies = [
     {
       title: "Lead Generation System",
@@ -25,43 +24,54 @@ const PortfolioSection = ({ isActive }: Props) => {
   ];
 
   return (
-    <div className="snap-panel bg-as-black">
-      <div className="section-container relative z-10 w-full">
-        {isActive && (
-          <>
-            <div className="text-center mb-16">
-              <span className="as-label opacity-0 animate-fade-in" style={{ animationDelay: '0.1s' }}>Case Studies</span>
-              <h2 className="text-4xl md:text-6xl font-bold text-white leading-[0.9] mt-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                Proven <span className="accent-text">results</span>.
-              </h2>
-            </div>
+    <section id="portfolio" className="py-20 md:py-28 bg-background relative overflow-hidden">
+      <div className="absolute inset-0 pattern-grid opacity-5" />
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {caseStudies.map((study, index) => (
-                <div
-                  key={index}
-                  className="opacity-0 animate-fade-in-up bg-as-dark border border-white/5 p-10 hover:border-as-accent/20 transition-all duration-500 group"
-                  style={{ animationDelay: `${0.5 + index * 0.15}s` }}
-                >
-                  <p className="as-label mb-3">{study.client}</p>
-                  <h3 className="text-2xl font-bold text-white mb-8">{study.title}</h3>
+      <div className="section-container relative z-10">
+        <ScrollReveal>
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <p className="terminal-text text-xs mb-4 opacity-50 uppercase tracking-[0.2em]">
+              <span className="text-neon-magenta">$</span> cases.showcase()
+            </p>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground">
+              Proven <span className="gradient-text">results</span>
+            </h2>
+          </div>
+        </ScrollReveal>
 
-                  <div className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-6">
+          {caseStudies.map((study, index) => (
+            <ScrollReveal key={index} direction={index === 0 ? "left" : "right"}>
+              <div className="group rounded border border-border bg-card overflow-hidden card-hover hover:border-cyan/30 relative h-full">
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-cyan/30" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-cyan/30" />
+                <div className="p-8">
+                  <div className="flex items-start justify-between mb-6">
+                    <div>
+                      <p className="terminal-text text-xs opacity-40 mb-1">{study.client}</p>
+                      <h3 className="text-xl font-display font-bold text-foreground">{study.title}</h3>
+                    </div>
+                    <div className="w-10 h-10 rounded flex items-center justify-center bg-cyan/10 border border-cyan/20 group-hover:bg-cyan group-hover:border-cyan transition-colors">
+                      <ArrowUpRight size={18} className="text-cyan group-hover:text-primary" />
+                    </div>
+                  </div>
+                  <div className="space-y-3">
                     {study.results.map((result, i) => (
-                      <div key={i} className="flex items-center gap-4">
-                        <result.icon className="w-4 h-4 text-as-accent/30 flex-shrink-0" />
-                        <p className="text-white/30 text-sm">{result.text}</p>
+                      <div key={i} className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded flex items-center justify-center bg-cyan/10 border border-cyan/20 flex-shrink-0">
+                          <result.icon className="w-4 h-4 text-cyan" />
+                        </div>
+                        <p className="text-foreground text-sm font-medium">{result.text}</p>
                       </div>
                     ))}
                   </div>
                 </div>
-              ))}
-            </div>
-          </>
-        )}
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
       </div>
-      <div className="absolute bottom-8 left-8 panel-counter">09</div>
-    </div>
+    </section>
   );
 };
 
