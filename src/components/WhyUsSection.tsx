@@ -1,7 +1,13 @@
-import { Check } from "lucide-react";
-import ScrollReveal from "./ScrollReveal";
+interface Props { isActive: boolean; }
 
-const WhyUsSection = () => {
+const WhyUsSection = ({ isActive }: Props) => {
+  const stats = [
+    { value: "50+", label: "Projects" },
+    { value: "3×", label: "Lead Growth" },
+    { value: "80%", label: "Time Saved" },
+    { value: "24/7", label: "Always On" },
+  ];
+
   const reasons = [
     "Growth-focused, not just design",
     "Automation-first approach",
@@ -11,56 +17,45 @@ const WhyUsSection = () => {
     "Long-term support",
   ];
 
-  const stats = [
-    { value: "50+", label: "Projects Deployed" },
-    { value: "3×", label: "Avg. Lead Increase" },
-    { value: "80%", label: "Time Saved" },
-    { value: "24/7", label: "Automation Running" },
-  ];
-
   return (
-    <section className="py-20 md:py-28 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 pattern-grid opacity-5" />
+    <div className="snap-panel bg-as-black">
+      <div className="section-container relative z-10 w-full">
+        {isActive && (
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <span className="as-label opacity-0 animate-fade-in" style={{ animationDelay: '0.1s' }}>Why Us</span>
+              <h2 className="text-5xl md:text-7xl font-bold text-white leading-[0.85] mt-6 mb-16 opacity-0 animate-slide-left" style={{ animationDelay: '0.3s' }}>
+                Why<br /><span className="accent-text">Webflowra</span>?
+              </h2>
 
-      <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="relative grid grid-cols-2 gap-4">
-            {stats.map((stat, i) => (
-              <ScrollReveal key={i} direction="scale" delay={i * 0.1}>
-                <div className={`p-7 rounded border text-center card-hover ${
-                  i % 2 === 0 ? "bg-primary border-cyan/20" : "bg-card border-border"
-                }`}>
-                  <p className="stats-highlight mb-2">{stat.value}</p>
-                  <p className={i % 2 === 0 ? "text-white/50 text-sm" : "text-muted-foreground text-sm"}>
-                    {stat.label}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal direction="right">
-            <p className="terminal-text text-xs mb-4 opacity-50 uppercase tracking-[0.2em]">
-              <span className="text-neon-magenta">$</span> why.choose_us()
-            </p>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-8">
-              Why <span className="gradient-text">Webflowra</span>?
-            </h2>
-
-            <div className="grid sm:grid-cols-2 gap-3">
-              {reasons.map((reason, index) => (
-                <div key={index} className="flex items-center gap-3 p-3 rounded border border-transparent hover:border-cyan/20 hover:bg-cyan/5 transition-all">
-                  <div className="w-6 h-6 rounded flex items-center justify-center flex-shrink-0 bg-cyan/10 border border-cyan/20">
-                    <Check className="w-3.5 h-3.5 text-cyan" />
+              {/* Stats */}
+              <div className="grid grid-cols-2 gap-8">
+                {stats.map((stat, i) => (
+                  <div key={i} className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${0.5 + i * 0.1}s` }}>
+                    <p className="text-4xl md:text-5xl font-bold accent-text mb-1" style={{ fontFamily: 'Syne' }}>{stat.value}</p>
+                    <p className="as-label">{stat.label}</p>
                   </div>
-                  <span className="text-foreground text-sm font-medium">{reason}</span>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-0">
+              {reasons.map((reason, index) => (
+                <div
+                  key={index}
+                  className="opacity-0 animate-slide-right border-b border-white/5 py-5 flex items-center gap-5 group"
+                  style={{ animationDelay: `${0.4 + index * 0.08}s` }}
+                >
+                  <span className="w-1.5 h-1.5 bg-as-accent/30 group-hover:bg-as-accent flex-shrink-0 transition-colors duration-300" />
+                  <span className="text-white/35 group-hover:text-white/70 font-medium text-base transition-colors duration-300">{reason}</span>
                 </div>
               ))}
             </div>
-          </ScrollReveal>
-        </div>
+          </div>
+        )}
       </div>
-    </section>
+      <div className="absolute bottom-8 left-8 panel-counter">07</div>
+    </div>
   );
 };
 

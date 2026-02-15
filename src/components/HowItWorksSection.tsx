@@ -1,53 +1,51 @@
 import { Search, Palette, Cog, TrendingUp } from "lucide-react";
-import ScrollReveal from "./ScrollReveal";
 
-const HowItWorksSection = () => {
+interface Props { isActive: boolean; }
+
+const HowItWorksSection = ({ isActive }: Props) => {
   const steps = [
-    { number: "01", icon: Search, title: "Discover", description: "We decode your business goals, audience, and growth blockers." },
-    { number: "02", icon: Palette, title: "Design", description: "We architect your website and build your digital growth system." },
-    { number: "03", icon: Cog, title: "Automate", description: "We deploy marketing and workflow automation pipelines." },
-    { number: "04", icon: TrendingUp, title: "Scale", description: "We optimize, track metrics, and accelerate growth." },
+    { num: "01", icon: Search, title: "Discover", desc: "We decode your goals, audience, and growth blockers." },
+    { num: "02", icon: Palette, title: "Design", desc: "We architect your website and digital growth system." },
+    { num: "03", icon: Cog, title: "Automate", desc: "We deploy marketing and workflow automation." },
+    { num: "04", icon: TrendingUp, title: "Scale", desc: "We optimize, track, and accelerate growth." },
   ];
 
   return (
-    <section id="how-it-works" className="py-20 md:py-28 section-navy relative overflow-hidden">
-      <div className="absolute inset-0 pattern-grid opacity-10" />
+    <div className="snap-panel bg-as-dark">
+      <div className="section-container relative z-10 w-full">
+        {isActive && (
+          <>
+            <div className="text-center mb-20">
+              <span className="as-label opacity-0 animate-fade-in" style={{ animationDelay: '0.1s' }}>Process</span>
+              <h2 className="text-4xl md:text-6xl font-bold text-white leading-[0.9] mt-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                Four steps to <span className="accent-text">liftoff</span>.
+              </h2>
+            </div>
 
-      <div className="section-container relative z-10">
-        <ScrollReveal>
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <p className="terminal-text text-xs mb-4 opacity-50 uppercase tracking-[0.2em]">
-              <span className="text-neon-magenta">$</span> process.execute()
-            </p>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
-              4-step <span className="gradient-text">protocol</span>
-            </h2>
-          </div>
-        </ScrollReveal>
+            <div className="grid md:grid-cols-4 gap-0 max-w-5xl mx-auto">
+              {steps.map((step, index) => (
+                <div
+                  key={index}
+                  className="opacity-0 animate-fade-in-up text-center relative px-6"
+                  style={{ animationDelay: `${0.4 + index * 0.15}s` }}
+                >
+                  {/* Connector line */}
+                  {index < steps.length - 1 && (
+                    <div className="hidden md:block absolute top-8 left-[60%] right-0 h-px bg-white/5" />
+                  )}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step, index) => (
-            <ScrollReveal key={index} direction="up" delay={index * 0.12}>
-              <div className="relative group">
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-16 left-[60%] w-full h-px bg-gradient-to-r from-cyan/40 to-transparent" />
-                )}
-                <div className="text-center cyber-card p-8 card-hover">
-                  <span className="font-mono text-neon-magenta text-xs font-bold mb-4 block opacity-60">[{step.number}]</span>
-                  <div className="inline-flex mb-5">
-                    <div className="w-20 h-20 rounded flex items-center justify-center bg-cyan/5 border border-cyan/20 group-hover:border-cyan/50 group-hover:shadow-[0_0_30px_hsl(190_100%_50%/0.2)] transition-all">
-                      <step.icon className="w-9 h-9 text-cyan" />
-                    </div>
-                  </div>
-                  <h3 className="text-lg font-display font-bold text-white mb-2">{step.title}</h3>
-                  <p className="text-white/40 text-sm">{step.description}</p>
+                  <span className="font-mono text-5xl md:text-6xl font-bold text-white/[0.04] block mb-4">{step.num}</span>
+                  <step.icon className="w-5 h-5 text-as-accent/50 mx-auto mb-4" />
+                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
+                  <p className="text-white/25 text-sm leading-relaxed">{step.desc}</p>
                 </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
-    </section>
+      <div className="absolute bottom-8 left-8 panel-counter">06</div>
+    </div>
   );
 };
 

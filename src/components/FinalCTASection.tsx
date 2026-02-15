@@ -1,57 +1,51 @@
 import { ArrowRight } from "lucide-react";
-import ScrollReveal from "./ScrollReveal";
 
-const FinalCTASection = () => {
+interface Props { isActive: boolean; }
+
+const FinalCTASection = ({ isActive }: Props) => {
   const whatsappNumber = "917204931995";
   const whatsappMessage = encodeURIComponent("Hi! I'd like to book a free strategy call.");
 
   return (
-    <section id="contact" className="py-20 md:py-28 section-navy relative overflow-hidden scanlines">
-      <div className="absolute inset-0 pattern-grid opacity-20" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan/10 rounded-full blur-[150px]" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-neon-magenta/8 rounded-full blur-[120px]" />
+    <div className="snap-panel bg-as-black">
+      <div className="section-container relative z-10 w-full">
+        {isActive && (
+          <div className="max-w-4xl mx-auto text-center">
+            <span className="as-label opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>Let's Begin</span>
 
-      <div className="section-container relative z-10">
-        <ScrollReveal direction="scale">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="w-20 h-px bg-cyan/50 mx-auto mb-10" />
-            <p className="terminal-text text-xs mb-6 opacity-40 uppercase tracking-[0.2em]">
-              <span className="text-neon-magenta">$</span> initiate.connection()<span className="animate-blink">_</span>
-            </p>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6">
-              Ready to build your{" "}
-              <span className="gradient-text">growth engine</span>?
+            <h2 className="text-5xl md:text-7xl lg:text-[8rem] font-bold text-white leading-[0.85] mt-8 mb-12 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+              Ready to<br /><span className="accent-text">grow</span>?
             </h2>
-            <p className="text-white/40 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-              Book a free strategy call and see how Webflowra can automate your business growth.
+
+            <p className="text-white/20 text-lg mb-14 max-w-md mx-auto leading-relaxed opacity-0 animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
+              Book a free strategy call and discover how we can automate your growth.
             </p>
-            <a
-              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center gap-3 group text-base animate-pulse-glow"
-            >
-              Book Free Call
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-white/30 text-xs font-mono uppercase tracking-wider">
-              <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-cyan rounded-full animate-pulse" />
-                Free Consult
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-cyan rounded-full animate-pulse" />
-                No Commitment
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-cyan rounded-full animate-pulse" />
-                24hr Response
-              </span>
+
+            <div className="opacity-0 animate-scale-in" style={{ animationDelay: '0.9s' }}>
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-anti group"
+              >
+                Book Free Call
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+              </a>
+            </div>
+
+            <div className="mt-16 flex flex-wrap items-center justify-center gap-10 opacity-0 animate-fade-in" style={{ animationDelay: '1.1s' }}>
+              {["Free Consultation", "No Commitment", "24hr Response"].map((item, i) => (
+                <span key={i} className="as-label flex items-center gap-2">
+                  <span className="w-1 h-1 bg-as-accent/30" />
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
-        </ScrollReveal>
+        )}
       </div>
-    </section>
+      <div className="absolute bottom-8 left-8 panel-counter">11</div>
+    </div>
   );
 };
 
