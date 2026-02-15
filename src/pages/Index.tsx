@@ -1,34 +1,57 @@
+import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import SocialProofStrip from "@/components/SocialProofStrip";
-import ProblemSection from "@/components/ProblemSection";
-import SolutionSection from "@/components/SolutionSection";
-import ServicesSection from "@/components/ServicesSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import WhyUsSection from "@/components/WhyUsSection";
-import TeamSection from "@/components/TeamSection";
-import PortfolioSection from "@/components/PortfolioSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background md:snap-y md:snap-mandatory md:h-screen md:overflow-y-auto scroll-smooth">
-      <Navbar />
-      <div className="md:snap-start md:snap-always"><HeroSection /></div>
-      <div className="md:snap-start md:snap-always"><SocialProofStrip /></div>
-      <div className="md:snap-start md:snap-always"><ProblemSection /></div>
-      <div className="md:snap-start md:snap-always"><SolutionSection /></div>
-      <div className="md:snap-start md:snap-always"><ServicesSection /></div>
-      <div className="md:snap-start md:snap-always"><HowItWorksSection /></div>
-      <div className="md:snap-start md:snap-always"><WhyUsSection /></div>
-      <div className="md:snap-start md:snap-always"><TeamSection /></div>
-      <div className="md:snap-start md:snap-always"><PortfolioSection /></div>
-      <div className="md:snap-start md:snap-always"><TestimonialsSection /></div>
-      <div className="md:snap-start md:snap-always"><FinalCTASection /></div>
-      <div className="md:snap-start md:snap-always"><Footer /></div>
-    </div>
+    <>
+      <Helmet>
+        <title>Webflowra — Build. Automate. Scale. | Digital Marketing Agency</title>
+        <meta name="description" content="Webflowra designs high-converting websites and builds smart marketing & workflow automation systems that grow your business on autopilot. Trusted by startups and growing businesses across India." />
+        <link rel="canonical" href="https://webflowra.com/" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Webflowra",
+          "url": "https://webflowra.com",
+          "logo": "https://webflowra.com/webflowra-logo.png",
+          "description": "Webflowra is a digital marketing agency that builds growth systems — web design, marketing automation, workflow automation, and AI integration.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-7204931995",
+            "contactType": "sales",
+            "email": "contact@webflowra.com",
+            "areaServed": "IN",
+            "availableLanguage": ["English", "Hindi"]
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bangalore",
+            "addressRegion": "Karnataka",
+            "addressCountry": "IN"
+          },
+          "sameAs": [
+            "https://www.instagram.com/webflowra/",
+            "https://www.facebook.com/profile.php?id=61587529013992",
+            "https://www.linkedin.com/company/webflowra"
+          ],
+          "foundingDate": "2024",
+          "slogan": "Build. Automate. Scale."
+        })}</script>
+      </Helmet>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <HeroSection />
+        <SocialProofStrip />
+        <TestimonialsSection />
+        <FinalCTASection />
+        <Footer />
+      </div>
+    </>
   );
 };
 

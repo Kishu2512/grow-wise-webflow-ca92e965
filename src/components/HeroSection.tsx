@@ -48,17 +48,17 @@ const HeroSection = () => {
 
           {/* Glitch headline */}
           <h1
-            className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-8 animate-fade-in-up delay-100 glitch-text"
-            data-text="Build. Automate. Scale."
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-8 animate-fade-in-up delay-100 glitch-text"
+            data-text="Webflowra: Build. Automate. Scale."
           >
-            Build.{" "}
-            <span className="gradient-text">Automate.</span>{" "}
+            Webflowra:{" "}
+            Build. <span className="gradient-text">Automate.</span>{" "}
             Scale.
           </h1>
 
           {/* Sub-headline */}
           <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up delay-200 font-light">
-            We architect high-converting websites and deploy intelligent automation
+            Webflowra architects high-converting websites and deploys intelligent automation
             systems that scale your business — <span className="text-cyan">on autopilot</span>.
           </p>
 
