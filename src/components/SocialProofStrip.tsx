@@ -31,7 +31,7 @@ const SocialProofStrip = () => {
             >
               <img
                 src={client.logo}
-                alt={client.name}
+                alt={`${client.name} — Webflowra client`}
                 className="h-12 md:h-16 w-auto max-w-[160px] object-contain opacity-60 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
               />
             </div>

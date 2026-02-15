@@ -20,7 +20,7 @@ const TestimonialsSection = () => {
               <span className="text-neon-magenta">$</span> feedback.stream()
             </p>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
-              Client <span className="gradient-text">transmissions</span>
+              Webflowra Client <span className="gradient-text">Reviews</span>
             </h2>
           </div>
         </ScrollReveal>
