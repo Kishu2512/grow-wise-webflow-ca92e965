@@ -13,7 +13,7 @@ const ContactUs = () => {
     <>
       <Helmet>
         <title>Contact Webflowra — Get a Free Strategy Call</title>
-        <meta name="description" content="Contact Webflowra for a free strategy call. Reach out via WhatsApp, email, or phone. Webflowra is based in Bangalore, India." />
+        <meta name="description" content="Contact Webflowra for a free strategy call. Reach out via WhatsApp, email, or phone. Webflowra is based in Challakere, Chitradurga, Karnataka." />
         <link rel="canonical" href="https://webflowra.com/contact" />
       </Helmet>
       <Navbar />
@@ -81,10 +81,29 @@ const ContactUs = () => {
                 <div className="cyber-card p-6 text-center h-full">
                   <MapPin size={24} className="text-cyan mx-auto mb-3" />
                   <p className="terminal-text text-[10px] opacity-40 mb-1">location</p>
-                  <p className="text-white/70 text-sm font-mono">Bangalore, Karnataka</p>
+                  <p className="text-white/70 text-sm font-mono">Challakere, Chitradurga, Karnataka</p>
                 </div>
               </ScrollReveal>
             </div>
+
+            {/* Google Maps Embed */}
+            <ScrollReveal>
+              <div className="max-w-3xl mx-auto mt-10">
+                <div className="cyber-card overflow-hidden rounded">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61548.81673440844!2d76.61!3d14.32!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bba37e2b8e0a06f%3A0x2f3e2c9f1e2a8b0a!2sChallakere%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                    width="100%"
+                    height="350"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Webflowra Office Location — Challakere, Chitradurga, Karnataka"
+                    className="w-full"
+                  />
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 

@@ -42,7 +42,7 @@ const Index = () => {
           "logo": "https://webflowra.com/webflowra-logo.png",
           "description": "Webflowra is a digital marketing agency that builds growth systems — web design, marketing automation, workflow automation, and AI integration.",
           "contactPoint": { "@type": "ContactPoint", "telephone": "+91-7204931995", "contactType": "sales", "email": "contact@webflowra.com", "areaServed": "IN", "availableLanguage": ["English", "Hindi"] },
-          "address": { "@type": "PostalAddress", "addressLocality": "Bangalore", "addressRegion": "Karnataka", "addressCountry": "IN" },
+          "address": { "@type": "PostalAddress", "addressLocality": "Challakere", "addressRegion": "Karnataka", "addressCountry": "IN" },
           "sameAs": ["https://www.instagram.com/webflowra/", "https://www.facebook.com/profile.php?id=61587529013992", "https://www.linkedin.com/company/webflowra"],
           "foundingDate": "2024",
           "slogan": "Build. Automate. Scale."
