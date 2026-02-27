@@ -154,9 +154,12 @@ const Index = () => {
             </div>
 
             <ScrollReveal>
-              <div className="text-center mt-12">
+              <div className="text-center mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link to="/services" className="btn-secondary inline-flex items-center gap-2 text-sm">
                   View All Webflowra Services <ArrowRight size={16} />
+                </Link>
+                <Link to="/faq" className="text-cyan text-sm font-mono hover:underline inline-flex items-center gap-2">
+                  FAQs | Common Questions About Webflowra <ArrowRight size={14} />
                 </Link>
               </div>
             </ScrollReveal>

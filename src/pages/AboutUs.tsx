@@ -227,6 +227,11 @@ const AboutUs = () => {
                   View Webflowra Services
                 </Link>
               </div>
+              <div className="mt-6">
+                <Link to="/faq" className="text-cyan text-sm font-mono hover:underline inline-flex items-center gap-2">
+                  FAQs | Common Questions About Webflowra <ArrowRight size={14} />
+                </Link>
+              </div>
             </ScrollReveal>
           </div>
         </section>
