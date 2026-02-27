@@ -6,6 +6,7 @@ const Footer = () => {
   const quickLinks = [
     { href: "/services", label: "Webflowra Services" },
     { href: "/about", label: "About Webflowra" },
+    { href: "/faq", label: "FAQs" },
     { href: "/contact", label: "Contact Webflowra" },
   ];
 
