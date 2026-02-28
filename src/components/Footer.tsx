@@ -29,7 +29,6 @@ const Footer = () => {
           <div>
             <Link to="/" className="flex flex-col items-start mb-4">
               <img src={webflowraLogo} alt="Webflowra — Digital Marketing Agency" className="h-16 w-auto" />
-              <p className="terminal-text text-[10px] mt-1 opacity-40">// web + workflow + growth</p>
             </Link>
             <p className="text-white/40 text-sm mb-6">
               Webflowra builds growth systems for businesses across India.

@@ -108,7 +108,7 @@ const Services = () => {
                         <div className="grid grid-cols-2 gap-3">
                           {service.highlights.map((h, i) => (
                             <div key={i} className="flex items-center gap-2.5 p-4 rounded border border-border hover:border-cyan/30 bg-card hover:bg-cyan/5 transition-all">
-                              <CheckCircle className="w-4 h-4 text-cyan flex-shrink-0" />
+                              <CheckCircle className="w-4 h-4 text-[hsl(var(--cyan-text))] flex-shrink-0" />
                               <span className="text-foreground text-sm font-medium">{h}</span>
                             </div>
                           ))}

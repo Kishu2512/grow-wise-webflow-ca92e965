@@ -24,9 +24,9 @@ const serviceData: Record<string, {
     metaTitle: "Webflowra Web Design & Development — High-Converting Websites",
     metaDesc: "Webflowra builds high-converting, mobile-first websites that turn visitors into leads. Professional web design by Webflowra.",
     intro: "Webflowra designs and develops high-converting, fast, mobile-first websites engineered to turn visitors into paying customers.",
-    problem: "Your current website looks outdated, loads slowly, and doesn't generate leads. Visitors leave within seconds.",
-    solution: "Webflowra builds conversion-optimized websites with fast load times, clear CTAs, and SEO baked in from day one.",
-    features: ["Custom responsive design by Webflowra", "SEO-optimized architecture", "Conversion-focused landing pages", "Mobile-first development", "Core Web Vitals optimization"],
+    problem: "Your website might look fine — but it's quietly hurting your business. Most business websites don't fail loudly. They fail silently. Visitors land, hesitate for a few seconds, and leave — without calling, booking, or buying.\n\nCommon issues we see: pages load slowly on mobile, the message isn't clear within 5 seconds, design looks generic compared to competitors, no clear next step for visitors, and traffic comes in but leads don't.\n\nOver time, this leads to lost inquiries, lower trust, wasted marketing spend, and missed growth opportunities. If your website isn't guiding visitors toward action, it's not doing its job.",
+    solution: "Webflowra builds websites with a clear purpose: helping your business grow. Instead of just making things look good, we focus on how users think, scroll, and decide.\n\nWith our approach, you get: fast-loading, mobile-first experiences; clear messaging that explains your value instantly; conversion-focused layouts that guide action; SEO-ready structure from day one; and a scalable build you can manage confidently.\n\nThe result is a website that feels professional and trustworthy, performs smoothly across devices, and turns visitors into real opportunities. This is where design meets performance.",
+    features: ["Responsive design by Webflowra", "SEO-optimized architecture", "Conversion-focused landing pages", "Mobile-first development", "Core Web Vitals optimization"],
     benefits: [
       { title: "3× More Leads", desc: "Conversion-focused design means more inquiries from the same traffic." },
       { title: "Professional Presence", desc: "A website that builds trust and positions you as a premium brand." },
