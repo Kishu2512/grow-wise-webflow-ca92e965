@@ -11,7 +11,7 @@ const services = [
     title: "Web Design & Development",
     slug: "web-design",
     description: "Webflowra designs high-converting, fast, mobile-first websites that turn visitors into leads.",
-    highlights: ["Custom responsive design", "SEO-optimized", "Conversion-focused", "Mobile-first"],
+    highlights: ["Responsive design", "SEO-optimized", "Conversion-focused", "Mobile-first"],
     tag: "frontend",
   },
   {
@@ -92,7 +92,7 @@ const Services = () => {
                   <ScrollReveal key={index} direction={isEven ? "left" : "right"}>
                     <div className={`grid lg:grid-cols-2 gap-10 lg:gap-16 items-center ${!isEven ? "lg:direction-rtl" : ""}`}>
                       <div className={!isEven ? "lg:order-2" : ""}>
-                        <span className="terminal-text text-[10px] opacity-30 block mb-3">/{service.tag}</span>
+                        <span className="font-mono text-[10px] text-[hsl(var(--cyan-text))] opacity-60 block mb-3">/{service.tag}</span>
                         <div className="w-14 h-14 rounded flex items-center justify-center mb-5 bg-cyan/10 border border-cyan/20">
                           <service.icon className="w-7 h-7 text-cyan" />
                         </div>
@@ -108,7 +108,7 @@ const Services = () => {
                         <div className="grid grid-cols-2 gap-3">
                           {service.highlights.map((h, i) => (
                             <div key={i} className="flex items-center gap-2.5 p-4 rounded border border-border hover:border-cyan/30 bg-card hover:bg-cyan/5 transition-all">
-                              <CheckCircle className="w-4 h-4 text-cyan flex-shrink-0" />
+                              <CheckCircle className="w-4 h-4 text-[hsl(var(--cyan-text))] flex-shrink-0" />
                               <span className="text-foreground text-sm font-medium">{h}</span>
                             </div>
                           ))}
