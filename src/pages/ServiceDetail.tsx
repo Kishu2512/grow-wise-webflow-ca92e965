@@ -12,8 +12,10 @@ const serviceData: Record<string, {
   metaTitle: string;
   metaDesc: string;
   intro: string;
-  problem: string;
-  solution: string;
+  problemHeadline: string;
+  problemBullets: string[];
+  solutionHeadline: string;
+  solutionBullets: string[];
   features: string[];
   benefits: { title: string; desc: string }[];
 }> = {
@@ -24,8 +26,20 @@ const serviceData: Record<string, {
     metaTitle: "Webflowra Web Design & Development — High-Converting Websites",
     metaDesc: "Webflowra builds high-converting, mobile-first websites that turn visitors into leads. Professional web design by Webflowra.",
     intro: "Webflowra designs and develops high-converting, fast, mobile-first websites engineered to turn visitors into paying customers.",
-    problem: "Your website might look fine — but it's quietly hurting your business. Most business websites don't fail loudly. They fail silently. Visitors land, hesitate for a few seconds, and leave — without calling, booking, or buying.\n\nCommon issues we see: pages load slowly on mobile, the message isn't clear within 5 seconds, design looks generic compared to competitors, no clear next step for visitors, and traffic comes in but leads don't.\n\nOver time, this leads to lost inquiries, lower trust, wasted marketing spend, and missed growth opportunities. If your website isn't guiding visitors toward action, it's not doing its job.",
-    solution: "Webflowra builds websites with a clear purpose: helping your business grow. Instead of just making things look good, we focus on how users think, scroll, and decide.\n\nWith our approach, you get: fast-loading, mobile-first experiences; clear messaging that explains your value instantly; conversion-focused layouts that guide action; SEO-ready structure from day one; and a scalable build you can manage confidently.\n\nThe result is a website that feels professional and trustworthy, performs smoothly across devices, and turns visitors into real opportunities. This is where design meets performance.",
+    problemHeadline: "Your website is quietly losing business",
+    problemBullets: [
+      "Visitors don't understand your value quickly",
+      "Pages load slowly, especially on mobile",
+      "Traffic comes in, but leads don't",
+      "No clear path to take action",
+    ],
+    solutionHeadline: "A website that works as hard as you do",
+    solutionBullets: [
+      "Fast, mobile-first builds",
+      "Clear messaging that guides action",
+      "Conversion-focused layouts",
+      "SEO-ready from day one",
+    ],
     features: ["Responsive design by Webflowra", "SEO-optimized architecture", "Conversion-focused landing pages", "Mobile-first development", "Core Web Vitals optimization"],
     benefits: [
       { title: "3× More Leads", desc: "Conversion-focused design means more inquiries from the same traffic." },
@@ -40,8 +54,20 @@ const serviceData: Record<string, {
     metaTitle: "Webflowra Digital Marketing — SEO, Ads & Lead Generation",
     metaDesc: "Webflowra provides SEO, paid ads, funnels, and lead generation strategies. Grow with Webflowra digital marketing.",
     intro: "Webflowra runs data-driven digital marketing campaigns — SEO, paid ads, funnels, and lead gen for consistent, predictable growth.",
-    problem: "You're spending money on ads with no clear ROI. Leads are inconsistent and you can't predict growth.",
-    solution: "Webflowra builds systematic marketing funnels with tracking, A/B testing, and continuous optimization for maximum ROI.",
+    problemHeadline: "You're spending on marketing with nothing to show",
+    problemBullets: [
+      "Ads run, but ROI is unclear",
+      "Leads are inconsistent month to month",
+      "No system to track what's working",
+      "Growth feels unpredictable",
+    ],
+    solutionHeadline: "A marketing system built for measurable growth",
+    solutionBullets: [
+      "Systematic funnels with tracking",
+      "A/B tested campaigns for higher ROI",
+      "SEO and paid ads working together",
+      "Continuous optimization by Webflowra",
+    ],
     features: ["SEO by Webflowra", "Google & Meta paid ads", "Sales funnel optimization", "Lead generation campaigns", "Performance analytics"],
     benefits: [
       { title: "Predictable Growth", desc: "Systematic funnels deliver consistent lead flow every month." },
@@ -56,8 +82,20 @@ const serviceData: Record<string, {
     metaTitle: "Webflowra Marketing Automation — Email, WhatsApp & CRM Flows",
     metaDesc: "Webflowra builds email, WhatsApp, and CRM automation flows. Marketing automation by Webflowra.",
     intro: "Webflowra builds automated email, WhatsApp, and CRM flows that follow up with every lead — so no opportunity is ever missed.",
-    problem: "Leads come in but nobody follows up. Your team is overwhelmed with manual outreach and leads go cold.",
-    solution: "Webflowra creates automated nurture sequences that follow up instantly, 24/7, converting leads while you sleep.",
+    problemHeadline: "Leads come in, but nobody follows up",
+    problemBullets: [
+      "Team is overwhelmed with manual outreach",
+      "Leads go cold before anyone responds",
+      "No automated follow-up system in place",
+      "Opportunities slip through the cracks",
+    ],
+    solutionHeadline: "Automated nurturing that never sleeps",
+    solutionBullets: [
+      "Instant, personalized follow-ups 24/7",
+      "Email and WhatsApp sequences on autopilot",
+      "CRM integration for full visibility",
+      "Leads nurtured until they convert",
+    ],
     features: ["Email automation by Webflowra", "WhatsApp business flows", "CRM setup & integration", "Lead nurturing sequences", "Automated follow-ups"],
     benefits: [
       { title: "Never Miss a Lead", desc: "Every inquiry gets an instant, personalized response." },
@@ -72,8 +110,20 @@ const serviceData: Record<string, {
     metaTitle: "Webflowra Workflow Automation — Zapier, Make & AI Tools",
     metaDesc: "Webflowra uses Zapier, Make, and AI tools to automate business workflows. Workflow automation by Webflowra.",
     intro: "Webflowra uses Zapier, Make, and AI tools to automate repetitive business processes, saving your team 20+ hours per week.",
-    problem: "Your team wastes hours on data entry, copying info between tools, and manual tasks that should be automated.",
-    solution: "Webflowra connects your tools and automates workflows so data flows seamlessly and tasks complete themselves.",
+    problemHeadline: "Your team is drowning in repetitive tasks",
+    problemBullets: [
+      "Hours wasted on manual data entry",
+      "Information copied between tools by hand",
+      "Processes break when someone forgets a step",
+      "No time left for strategic work",
+    ],
+    solutionHeadline: "Connected tools that run themselves",
+    solutionBullets: [
+      "Zapier & Make integrations across your stack",
+      "Data flows seamlessly between platforms",
+      "Zero manual handoffs or errors",
+      "Your team focuses on what matters",
+    ],
     features: ["Zapier & Make integrations", "Business process automation", "Cross-platform data sync", "Custom workflow design", "API integrations"],
     benefits: [
       { title: "Save 20+ Hours/Week", desc: "Eliminate repetitive tasks and free your team for strategic work." },
@@ -88,8 +138,20 @@ const serviceData: Record<string, {
     metaTitle: "Webflowra AI Integration — Chatbots, AI Workflows & Smart Tools",
     metaDesc: "Webflowra integrates AI chatbots, workflows, and smart tools. AI integration by Webflowra.",
     intro: "Webflowra integrates cutting-edge AI chatbots, intelligent workflows, and smart tools into your operations.",
-    problem: "Your competitors are using AI while you're stuck with manual processes. You're losing speed and efficiency.",
-    solution: "Webflowra deploys AI-powered tools that handle customer support, content creation, and decision-making at scale.",
+    problemHeadline: "You're falling behind on AI adoption",
+    problemBullets: [
+      "Competitors are automating with AI already",
+      "Customer support can't scale manually",
+      "Content creation is slow and expensive",
+      "Decisions lack data-driven insights",
+    ],
+    solutionHeadline: "AI-powered tools that scale with you",
+    solutionBullets: [
+      "AI chatbots for 24/7 customer support",
+      "Smart workflows that learn and adapt",
+      "AI-driven content and analytics",
+      "Custom integrations by Webflowra",
+    ],
     features: ["AI chatbot development", "AI-powered workflows", "Smart content generation", "AI analytics & insights", "Custom AI integrations"],
     benefits: [
       { title: "24/7 Support", desc: "AI chatbots handle customer queries instantly, day and night." },
@@ -149,19 +211,31 @@ const ServiceDetail = () => {
               <ScrollReveal direction="left">
                 <div className="p-8 rounded border border-destructive/20 bg-destructive/5 h-full">
                   <AlertTriangle className="w-8 h-8 text-destructive mb-4" />
-                  <h3 className="text-lg font-display font-bold text-foreground mb-3">The Problem</h3>
-                  {service.problem.split('\n\n').map((p, i) => (
-                    <p key={i} className="text-muted-foreground leading-relaxed mb-3 last:mb-0">{p}</p>
-                  ))}
+                  <h3 className="text-lg font-display font-bold text-foreground mb-1">The Problem</h3>
+                  <p className="text-muted-foreground font-semibold mb-4">{service.problemHeadline}</p>
+                  <ul className="space-y-2.5">
+                    {service.problemBullets.map((b, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-muted-foreground text-sm leading-relaxed">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-destructive/60 flex-shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </ScrollReveal>
               <ScrollReveal direction="right">
                 <div className="p-8 rounded border border-[hsl(var(--cyan-text))]/20 bg-[hsl(var(--cyan-text))]/5 h-full">
                   <TrendingUp className="w-8 h-8 text-[hsl(var(--cyan-text))] mb-4" />
-                  <h3 className="text-lg font-display font-bold text-foreground mb-3">The Webflowra Solution</h3>
-                  {service.solution.split('\n\n').map((p, i) => (
-                    <p key={i} className="text-muted-foreground leading-relaxed mb-3 last:mb-0">{p}</p>
-                  ))}
+                  <h3 className="text-lg font-display font-bold text-foreground mb-1">The Webflowra Solution</h3>
+                  <p className="text-muted-foreground font-semibold mb-4">{service.solutionHeadline}</p>
+                  <ul className="space-y-2.5">
+                    {service.solutionBullets.map((b, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-muted-foreground text-sm leading-relaxed">
+                        <CheckCircle className="w-3.5 h-3.5 text-[hsl(var(--cyan-text))] flex-shrink-0 mt-0.5" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </ScrollReveal>
             </div>
