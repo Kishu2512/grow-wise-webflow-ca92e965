@@ -92,7 +92,7 @@ const Services = () => {
                   <ScrollReveal key={index} direction={isEven ? "left" : "right"}>
                     <div className={`grid lg:grid-cols-2 gap-10 lg:gap-16 items-center ${!isEven ? "lg:direction-rtl" : ""}`}>
                       <div className={!isEven ? "lg:order-2" : ""}>
-                        <span className="terminal-text text-[10px] opacity-30 block mb-3">/{service.tag}</span>
+                        <span className="font-mono text-[10px] text-[hsl(var(--cyan-text))] opacity-60 block mb-3">/{service.tag}</span>
                         <div className="w-14 h-14 rounded flex items-center justify-center mb-5 bg-cyan/10 border border-cyan/20">
                           <service.icon className="w-7 h-7 text-cyan" />
                         </div>
