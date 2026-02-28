@@ -18,7 +18,7 @@ const services = [
 ];
 
 const stats = [
-  { value: "50+", label: "Projects Delivered" },
+  { value: "20+", label: "Projects Delivered" },
   { value: "3×", label: "Avg. Lead Increase" },
   { value: "20+", label: "Hours Saved/Week" },
   { value: "24/7", label: "Automation Running" },
