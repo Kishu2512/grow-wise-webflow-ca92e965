@@ -19,7 +19,7 @@ const services = [
 
 const stats = [
   { value: "20+", label: "Projects Delivered" },
-  { value: "Up to 65%", label: "Conversion Rate Increase" },
+  { value: "65%", label: "Conversion Rate Increase" },
   { value: "300%", label: "Document Collection Growth" },
   { value: "24/7", label: "Automation Running" },
 ];
