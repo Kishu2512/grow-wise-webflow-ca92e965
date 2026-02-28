@@ -12,8 +12,10 @@ const serviceData: Record<string, {
   metaTitle: string;
   metaDesc: string;
   intro: string;
-  problem: string;
-  solution: string;
+  problemHeadline: string;
+  problemBullets: string[];
+  solutionHeadline: string;
+  solutionBullets: string[];
   features: string[];
   benefits: { title: string; desc: string }[];
 }> = {
