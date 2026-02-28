@@ -18,7 +18,7 @@ const services = [
 ];
 
 const stats = [
-  { value: "50+", label: "Projects Delivered" },
+  { value: "20+", label: "Projects Delivered" },
   { value: "3×", label: "Avg. Lead Increase" },
   { value: "20+", label: "Hours Saved/Week" },
   { value: "24/7", label: "Automation Running" },
@@ -190,7 +190,7 @@ const Index = () => {
                 <div className="grid sm:grid-cols-2 gap-4">
                   {[
                     { icon: Zap, title: "Automation-First", desc: "Every system we build runs on autopilot from day one." },
-                    { icon: Shield, title: "Proven Results", desc: "50+ projects, 3× average lead increase for our clients." },
+                    { icon: Shield, title: "Proven Results", desc: "20+ projects, 3× average lead increase for our clients." },
                     { icon: Clock, title: "Fast Delivery", desc: "Launch in weeks, not months. Agile sprints with clear milestones." },
                     { icon: CheckCircle, title: "Full-Stack", desc: "Web, marketing, automation & AI — all under one Webflowra roof." },
                   ].map((item, i) => (
