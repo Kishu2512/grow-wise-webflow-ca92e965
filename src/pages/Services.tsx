@@ -11,7 +11,7 @@ const services = [
     title: "Web Design & Development",
     slug: "web-design",
     description: "Webflowra designs high-converting, fast, mobile-first websites that turn visitors into leads.",
-    highlights: ["Custom responsive design", "SEO-optimized", "Conversion-focused", "Mobile-first"],
+    highlights: ["Responsive design", "SEO-optimized", "Conversion-focused", "Mobile-first"],
     tag: "frontend",
   },
   {
