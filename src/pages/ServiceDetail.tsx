@@ -150,14 +150,18 @@ const ServiceDetail = () => {
                 <div className="p-8 rounded border border-destructive/20 bg-destructive/5 h-full">
                   <AlertTriangle className="w-8 h-8 text-destructive mb-4" />
                   <h3 className="text-lg font-display font-bold text-foreground mb-3">The Problem</h3>
-                  <p className="text-muted-foreground leading-relaxed">{service.problem}</p>
+                  {service.problem.split('\n\n').map((p, i) => (
+                    <p key={i} className="text-muted-foreground leading-relaxed mb-3 last:mb-0">{p}</p>
+                  ))}
                 </div>
               </ScrollReveal>
               <ScrollReveal direction="right">
-                <div className="p-8 rounded border border-cyan/20 bg-cyan/5 h-full">
-                  <TrendingUp className="w-8 h-8 text-cyan mb-4" />
+                <div className="p-8 rounded border border-[hsl(var(--cyan-text))]/20 bg-[hsl(var(--cyan-text))]/5 h-full">
+                  <TrendingUp className="w-8 h-8 text-[hsl(var(--cyan-text))] mb-4" />
                   <h3 className="text-lg font-display font-bold text-foreground mb-3">The Webflowra Solution</h3>
-                  <p className="text-muted-foreground leading-relaxed">{service.solution}</p>
+                  {service.solution.split('\n\n').map((p, i) => (
+                    <p key={i} className="text-muted-foreground leading-relaxed mb-3 last:mb-0">{p}</p>
+                  ))}
                 </div>
               </ScrollReveal>
             </div>
