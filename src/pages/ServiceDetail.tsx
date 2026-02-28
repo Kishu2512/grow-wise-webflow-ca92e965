@@ -181,8 +181,8 @@ const ServiceDetail = () => {
               {service.features.map((f, i) => (
                 <ScrollReveal key={i} direction="scale" delay={i * 0.06}>
                   <div className="flex items-center gap-3 p-5 cyber-card card-hover">
-                    <CheckCircle className="w-5 h-5 text-cyan flex-shrink-0" />
-                    <span className="text-white/70 text-sm">{f}</span>
+                    <CheckCircle className="w-5 h-5 text-[hsl(var(--cyan-text))] flex-shrink-0" />
+                     <span className="text-white/70 text-sm">{f}</span>
                   </div>
                 </ScrollReveal>
               ))}
