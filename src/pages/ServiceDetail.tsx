@@ -211,19 +211,31 @@ const ServiceDetail = () => {
               <ScrollReveal direction="left">
                 <div className="p-8 rounded border border-destructive/20 bg-destructive/5 h-full">
                   <AlertTriangle className="w-8 h-8 text-destructive mb-4" />
-                  <h3 className="text-lg font-display font-bold text-foreground mb-3">The Problem</h3>
-                  {service.problem.split('\n\n').map((p, i) => (
-                    <p key={i} className="text-muted-foreground leading-relaxed mb-3 last:mb-0">{p}</p>
-                  ))}
+                  <h3 className="text-lg font-display font-bold text-foreground mb-1">The Problem</h3>
+                  <p className="text-muted-foreground font-semibold mb-4">{service.problemHeadline}</p>
+                  <ul className="space-y-2.5">
+                    {service.problemBullets.map((b, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-muted-foreground text-sm leading-relaxed">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-destructive/60 flex-shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </ScrollReveal>
               <ScrollReveal direction="right">
                 <div className="p-8 rounded border border-[hsl(var(--cyan-text))]/20 bg-[hsl(var(--cyan-text))]/5 h-full">
                   <TrendingUp className="w-8 h-8 text-[hsl(var(--cyan-text))] mb-4" />
-                  <h3 className="text-lg font-display font-bold text-foreground mb-3">The Webflowra Solution</h3>
-                  {service.solution.split('\n\n').map((p, i) => (
-                    <p key={i} className="text-muted-foreground leading-relaxed mb-3 last:mb-0">{p}</p>
-                  ))}
+                  <h3 className="text-lg font-display font-bold text-foreground mb-1">The Webflowra Solution</h3>
+                  <p className="text-muted-foreground font-semibold mb-4">{service.solutionHeadline}</p>
+                  <ul className="space-y-2.5">
+                    {service.solutionBullets.map((b, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-muted-foreground text-sm leading-relaxed">
+                        <CheckCircle className="w-3.5 h-3.5 text-[hsl(var(--cyan-text))] flex-shrink-0 mt-0.5" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </ScrollReveal>
             </div>
