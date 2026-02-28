@@ -41,6 +41,7 @@
     --slate-light: 215 20% 65%;
     --neon-magenta: 210 100% 65%;
     --neon-green: 195 90% 55%;
+    --cyan-text: 190 100% 29%;
 
     --shadow-glow: 0 0 40px hsl(190 100% 50% / 0.3);
     --shadow-glow-sm: 0 0 20px hsl(190 100% 50% / 0.2);
